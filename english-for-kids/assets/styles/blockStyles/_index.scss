@@ -1,0 +1,62 @@
+@media (max-width: 767px) {
+  .logo {
+    margin-left: 70px;
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 564px) {
+  .logo {
+    margin-left: 20px;
+    font-size: 3.5rem;
+  }
+  .game-checkbox .check {
+    width: 90px;
+  }
+  .game-checkbox .check::before {
+    width: 35px;
+    left: 65px;
+  }
+  label {
+    font-size: 21px;
+  }
+  .swichOn,
+  .swichOff {
+    bottom: 13px;
+  }
+  #nav {
+    left: -80%;
+  }
+  .container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 426px) {
+  .logo {
+    font-size: 3rem;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 376px) {
+  .logo {
+    font-size: 2.5rem;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  .game-checkbox .check {
+    width: 70px;
+  }
+  .game-checkbox .check::before {
+    width: 14px;
+    left: 57px;
+  }
+  .swichOn,
+  .swichOff {
+    bottom: 11px;
+  }
+  .swichOn {
+    left: 8px;
+  }
+}
