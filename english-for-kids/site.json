@@ -1,0 +1,7 @@
+{
+  "nav": [
+    { "href": "/", "text": "HEM" },
+    { "href": "/mobilkranaer.html", "text": "MOBILKRANAER" },
+    { "href": "/kontakta-oss.html", "text": "KONTAKTA&nbspOSS" }
+  ]
+}
