@@ -1,21 +1,21 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const autoprefixer = require("autoprefixer");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlBeautifyPlugin = require("html-beautify-webpack-plugin");
-const dirApp = path.join(__dirname, "app");
-const dirAssets = path.join(__dirname, "assets");
-const dirNode = "node_modules";
-const IS_DEV = process.env.NODE_ENV === "dev";
-const DATA = require("./data.json");
-const SITE = require("./site.json");
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const autoprefixer = require('autoprefixer')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin')
+const dirApp = path.join(__dirname, 'app')
+const dirAssets = path.join(__dirname, 'assets')
+const dirNode = 'node_modules'
+const IS_DEV = process.env.NODE_ENV === 'dev'
+const DATA = require('./data.json')
+const SITE = require('./site.json')
 
 const CONFIG = {
   entry: {
     bundle: [
-      path.join(dirApp, "bundle"),
-      path.join(dirAssets, "styles", "index.scss")
+      path.join(dirApp, 'bundle'),
+      path.join(dirAssets, 'styles', 'index.scss')
     ]
   },
   resolve: {
@@ -23,34 +23,34 @@ const CONFIG = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      IS_DEV
+      IS_DEV,
     }),
 
 
     new HtmlWebpackPlugin({
-      template: "./views/pages/index.pug",
-      filename: "index.html",
-      title: "Title",
-      excludeChunks: ["item"],
+      template: './views/pages/index.pug',
+      filename: 'index.html',
+      title: 'Title',
+      excludeChunks: ['item'],
       templateParameters: {
-        SITE
+        SITE,
       },
-      // favicon: "./favicon.ico"
-      // SITE: SITE
+      favicon: './favicon.ico',
+      SITE,
     }),
     new HtmlWebpackPlugin({
-      template: "./views/pages/category.pug",
-      filename: "category.html",
-      title: "stock",
-      excludeChunks: ["item"],
+      template: './views/pages/category.pug',
+      filename: 'category.html',
+      title: 'stock',
+      excludeChunks: ['item'],
       // SITE: SITE
       templateParameters: {
         DATA,
-        SITE
+        SITE,
       }
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/styles/[name].[hash].css"
+      filename: 'assets/styles/[name].[hash].css',
     })
   ]
     .concat([
@@ -62,16 +62,16 @@ const CONFIG = {
             indent_with_tabs: true,
             indent_inner_html: true,
             preserve_newlines: true,
-            intend_scripts: "keep",
-            inline: ["img", "span", "svg"],
+            intend_scripts: 'keep',
+            inline: ['img', 'span', 'svg'],
             extra_liners: [
-              "head",
-              "body",
-              "main",
-              "section",
-              "php",
-              "?php",
-              "a"
+              'head',
+              'body',
+              'main',
+              'section',
+              'php',
+              '?php',
+              'a',
             ]
           }
         }
@@ -82,45 +82,45 @@ const CONFIG = {
       // PUG
       {
         test: /\.pug$/,
-        use: [{ loader: "pug-loader" }]
+        use: [{ loader: 'pug-loader' }],
       },
 
       // BABEL
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: [/(node_modules)/, /(vendor)/],
         options: {
-          compact: true
+          compact: true,
         }
       },
 
       // HTML templates
       {
         test: /\.html$/,
-        loader: "raw-loader"
+        loader: 'raw-loader',
       },
 
       // STYLES
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              sourceMap: IS_DEV
+              sourceMap: IS_DEV,
             }
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               plugins: [
                 autoprefixer({
-                  browsers: ["ie >= 8", "last 4 version"]
+                  browsers: ['ie >= 8', 'last 4 version'],
                 })
               ],
-              sourceMap: IS_DEV
+              sourceMap: IS_DEV,
             }
           }
         ]
@@ -132,30 +132,30 @@ const CONFIG = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              sourceMap: IS_DEV
+              sourceMap: IS_DEV,
             }
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               plugins: [
                 autoprefixer({
-                  browsers: ["ie >= 8", "last 4 version"]
+                  browsers: ['ie >= 8', 'last 4 version']
                 })
               ],
               sourceMap: IS_DEV
             }
           },
           {
-            loader: "group-css-media-queries-loader",
+            loader: 'group-css-media-queries-loader',
             options: {
               sourceMap: IS_DEV
             }
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               sourceMap: IS_DEV
               //   includePaths: [dirAssets]
@@ -167,13 +167,13 @@ const CONFIG = {
       // IMAGES & FONTS
       {
         test: /\.(jpe?g|png|gif|svg|ttf|eot|woff?2)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          name: "[path][name].[ext]"
+          name: '[path][name].[ext]'
         }
       }
     ]
   }
-};
+}
 
-module.exports = CONFIG;
+module.exports = CONFIG

@@ -3,42 +3,42 @@ const cards = [
     {
       word: 'Action',
       image: './assets/images/hug.jpg',
-      audioSrc: './assets/audio/Action.mp3',
+      // audioSrc: './assets/audio/Action.mp3',
     },
     {
       word: 'Colors',
       image: './assets/images/green.jpg',
-      audioSrc: './assets/audio/Colors.mp3',
+      // audioSrc: './assets/audio/Colors.mp3',
     },
     {
       word: 'Animal',
       image: './assets/images/rabbit.jpg',
-      audioSrc: './assets/audio/Animal.mp3',
+      // audioSrc: './assets/audio/Animal.mp3',
     },
     {
       word: 'Vegetables',
       image: './assets/images/tomato.jpg',
-      audioSrc: './assets/audio/Vegetables.mp3',
+      // audioSrc: './assets/audio/Vegetables.mp3',
     },
     {
       word: 'Clothes',
       image: './assets/images/blouse.jpg',
-      audioSrc: './assets/audio/Clothes.mp3',
+      // audioSrc: './assets/audio/Clothes.mp3',
     },
     {
       word: 'Emotions',
       image: './assets/images/cry.jpg',
-      audioSrc: './assets/audio/Emotions.mp3',
+      // audioSrc: './assets/audio/Emotions.mp3',
     },
     {
       word: 'Food',
       image: './assets/images/eggs.jpg',
-      audioSrc: './assets/audio/Food.mp3',
+      // audioSrc: './assets/audio/Food.mp3',
     },
     {
       word: 'Fruits',
       image: './assets/images/mango.jpg',
-      audioSrc: './assets/audio/Fruits.mp3',
+      // audioSrc: './assets/audio/Fruits.mp3',
     },
   ],
   [

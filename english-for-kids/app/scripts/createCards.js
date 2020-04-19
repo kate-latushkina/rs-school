@@ -20,5 +20,22 @@ module.exports = function createCards(cards) {
     const source = document.createElement('source')
     audio.appendChild(source)
     source.setAttribute('src', cards.default[0][i].audioSrc)
+    const reverseButton = document.createElement('button')
+    reverseButton.classList.add('none')
+    reverseButton.classList.add('reverse')
+    createCard.appendChild(reverseButton)
   }
+  const div = document.createElement('div')
+  const startGame = document.createElement('button')
+  document.querySelector('main').appendChild(div)
+  div.appendChild(startGame)
+  div.classList.add('divGame')
+  startGame.classList.add('startGame')
+  startGame.classList.add('none')
+  startGame.innerHTML = 'Start game'
+  const imgButGame = document.createElement('img')
+  startGame.appendChild(imgButGame)
+  imgButGame.setAttribute('src', '../assets/images/repeat.svg')
+  imgButGame.classList.add('none')
+  imgButGame.classList.add('repeatButtonGame')
 }
