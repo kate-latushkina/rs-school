@@ -21,17 +21,13 @@ module.exports = merge(webpackConfig, {
     new CopyWebpackPlugin(
       [
         {
-          from: "assets/images",
-          to: "assets/images"
+          from: "./assets/images",
+          to: "./assets/images",
         },
         {
-          from: "assets/fonts",
-          to: "assets/fonts"
+          from: "./assets/audio",
+          to: "./assets/audio",
         },
-        {
-          from: "assets/audio",
-          to: "assets/audio"
-        }
       ],
       {
         // debug: "info"
