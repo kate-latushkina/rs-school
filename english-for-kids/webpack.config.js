@@ -38,17 +38,6 @@ const CONFIG = {
       favicon: './favicon.ico',
       SITE,
     }),
-    new HtmlWebpackPlugin({
-      template: './views/pages/category.pug',
-      filename: 'category.html',
-      title: 'stock',
-      excludeChunks: ['item'],
-      // SITE: SITE
-      templateParameters: {
-        DATA,
-        SITE,
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: 'assets/styles/[name].[hash].css',
     })
