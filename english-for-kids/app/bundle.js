@@ -14,7 +14,6 @@ document.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
     const clickNav = e.srcElement.hash.substring(1)
     clickCard(e, clickNav)
-    // e.target.style.color = 'yellow'
   }
   if (document.querySelector('#main-title').textContent === 'Main page') {
     const clickElem = e.srcElement.text

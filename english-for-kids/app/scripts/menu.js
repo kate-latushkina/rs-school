@@ -2,8 +2,6 @@ module.exports = function menu() {
   const burgerButton = document.querySelector('.burger-button')
   const burgerNav = document.querySelector('#nav')
   const burgerMenu = document.querySelector('.burger_menu')
-  // const menuLinks = document.querySelectorAll('.burger_menu-line')
-  // const mainTitle = document.getElementById('main-title')
   burgerButton.addEventListener('click', () => {
     burgerButton.classList.toggle('burger-active')
     burgerNav.classList.toggle('burger-active')

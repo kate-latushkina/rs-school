@@ -6,7 +6,6 @@ module.exports = function checkPlay() {
       kids.classList.add('playCard')
       kids.childNodes[1].classList.add('none')
       kids.childNodes[3].classList.add('none')
-      // console.log(kids.childNodes)
       startGame.classList.remove('none')
     }
     if (kids.classList.contains('cardsBG-train')) {
@@ -14,14 +13,12 @@ module.exports = function checkPlay() {
       kids.childNodes[1].classList.remove('none')
       kids.childNodes[3].classList.remove('none')
       startGame.classList.add('none')
-      // console.log(kids.childNodes)
     }
     // console.log(kids)
   })
 
   startGame.addEventListener('click', () => {
-    console.log(1212)
-    // document.querySelector('.repeatButtonGame').classList.remove('none')
+    // console.log(1212)
     audioGame()
   })
 
@@ -35,11 +32,13 @@ module.exports = function checkPlay() {
     }
     audioArray.sort(() => Math.random() - 0.5)
 
-    for (let k = audioArray.length - 1; k > 0; k -= 1) {
+    for (let k = audioArray.length - 1; k >= 0; k -= 1) {
       audioArray[k].play()
-      if (audioArray[k]) {
-        console.log(audioArray[k].src)
-      }
+      // if () {
+
+      // }
+
+      console.log(audioArray[k])
     }
   }
 }
