@@ -27,6 +27,10 @@ module.exports = merge(webpackConfig, {
         {
           from: "assets/fonts",
           to: "assets/fonts"
+        },
+        {
+          from: "assets/audio",
+          to: "assets/audio"
         }
       ],
       {
