@@ -4,7 +4,6 @@ module.exports = function createCards(cards) {
   for (let i = 0; i < cards.default[0].length; i += 1) {
     const createCard = document.createElement('a')
     document.querySelector('main .container').appendChild(createCard)
-    // createCard.classList.add('kidsCard')
     createCard.classList.add('mainCards')
     createCard.classList.add('cardsBG-train')
     const createImages = document.createElement('img')

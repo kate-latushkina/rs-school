@@ -19,13 +19,17 @@ module.exports = function clickCard(e, clickNav) {
   for (const key in navID) {
     if (clickNav === key) {
       if (clickNav === 'Main') {
+        const but = document.querySelectorAll('.reverse')
         document.querySelector('#main-title').innerHTML = 'Main page'
         for (let i = 0; i < cards.default[navID[clickNav]].length; i += 1) {
+          oneCard[i].classList.remove('reverse')
           createImages[i].classList.add('main-card-pic')
           createImages[i].classList.remove('card-pic')
           createImages[i].src = cards.default[navID[key]][i].image
           cardText[i].innerText = cards.default[navID[key]][i].word
-          oneCard[i].classList.remove('kidsCard')
+          but.forEach((elemBut) => {
+            elemBut.classList.add('reverse-none')
+          })
         }
       } else {
         const pageTitle = document.querySelector('#main-title')
@@ -39,6 +43,7 @@ module.exports = function clickCard(e, clickNav) {
           audio[i].setAttribute('src', cards.default[navID[key]][i].audioSrc)
           const reverseButton = document.createElement('button')
           reverseButton.classList.add('reverse')
+          reverseButton.classList.remove('reverse-none')
           oneCard[i].appendChild(reverseButton)
           cardText[i].setAttribute('data-translate', cards.default[navID[key]][i].translation)
           cardText[i].setAttribute('data-word', cards.default[navID[key]][i].word)
