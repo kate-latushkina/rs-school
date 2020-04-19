@@ -59,10 +59,11 @@ document.body.addEventListener('click', (event) => {
     parent.addEventListener('mouseleave', () => {
       if (parent.classList.contains('flip-card')) {
         parent.classList.remove('flip-card')
-        event.target.classList.remove('none')
-        event.target.classList.add('reverse')
+        event.target.classList.remove('reverse')
         parent.childNodes[1].classList.remove('flip-card')
         parent.childNodes[2].classList.remove('flip-card')
+        parent.childNodes[3].classList.add('reverse')
+        parent.childNodes[3].classList.remove('none')
         parent.childNodes[1].innerHTML = parent.childNodes[1].dataset.word
       }
     })
