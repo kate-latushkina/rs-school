@@ -5,11 +5,12 @@ module.exports = function createCards(cards) {
     const createCard = document.createElement('a')
     document.querySelector('main .container').appendChild(createCard)
     createCard.classList.add('mainCards')
+    createCard.setAttribute('data-category', cards.default[0][i].word)
     createCard.classList.add('cardsBG-train')
     const createImages = document.createElement('img')
     createCard.appendChild(createImages)
     createImages.classList.add('main-card-pic')
-    createImages.setAttribute('href', cards.default[0][i].word)
+    // createImages.setAttribute('href', cards.default[0][i].word)
     createImages.src = cards.default[0][i].image
     const cardText = document.createElement('p')
     createCard.appendChild(cardText)
@@ -34,7 +35,7 @@ module.exports = function createCards(cards) {
   startGame.classList.add('none')
   startGame.innerHTML = 'Start game'
   const imgButGame = document.createElement('img')
-  startGame.appendChild(imgButGame)
+  div.appendChild(imgButGame)
   imgButGame.setAttribute('src', '../assets/images/repeat.svg')
   imgButGame.classList.add('none')
   imgButGame.classList.add('repeatButtonGame')

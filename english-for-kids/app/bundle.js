@@ -14,6 +14,7 @@ document.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
     const clickNav = e.srcElement.hash.substring(1)
     clickCard(e, clickNav)
+    document.querySelector('.repeatButtonGame').classList.add('none')
   }
   if (document.querySelector('#main-title').textContent === 'Main page') {
     const clickElem = e.srcElement.text
@@ -45,7 +46,7 @@ trainPlayButton.onclick = () => {
 
 // reverse and audio
 document.body.addEventListener('click', (event) => {
-  if (event.target !== document.querySelector('#nav')) {
+  if (event.target !== document.querySelector('#nav') && event.target !== document.querySelector('.startGame')) {
     const parent = event.target.offsetParent
     if (event.target.classList.contains('reverse')) {
       parent.classList.add('flip-card')

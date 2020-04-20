@@ -10,7 +10,13 @@ module.exports = function menu() {
   })
 
   document.addEventListener('click', (link) => {
-    if (link.target.tagName === 'A' || link.target.tagName === 'NAV') {
+    if (link.target.classList.contains('burger_menu-line')) {
+      document.querySelectorAll('.burger_menu-line').forEach((burgerLink) => {
+        burgerLink.style.color = 'white'
+      })
+    }
+    if (link.target.classList.contains('burger_menu-line') || link.target.tagName === 'NAV') {
+      link.target.style.color = 'yellow'
       burgerButton.classList.remove('burger-active')
       burgerNav.classList.remove('burger-active')
       burgerMenu.classList.remove('active-menu')

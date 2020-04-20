@@ -16,6 +16,7 @@ module.exports = function clickCard(e, clickNav) {
   const createImages = document.querySelectorAll('.mainCards img')
   const cardText = document.querySelectorAll('.mainCards p')
   const audio = document.querySelectorAll('audio source')
+  const audioData = document.querySelectorAll('audio')
   for (const key in navID) {
     if (clickNav === key) {
       const but = document.querySelectorAll('.reverse')
@@ -29,6 +30,8 @@ module.exports = function clickCard(e, clickNav) {
           createImages[i].classList.remove('card-pic')
           createImages[i].src = cards.default[navID[key]][i].image
           cardText[i].innerText = cards.default[navID[key]][i].word
+          createImages[i].removeAttribute('data-word')
+          audioData[i].removeAttribute('data-word')
           but.forEach((elemBut) => {
             elemBut.classList.add('none')
           })
@@ -37,12 +40,16 @@ module.exports = function clickCard(e, clickNav) {
         const pageTitle = document.querySelector('#main-title')
         pageTitle.innerHTML = cards.default[0][navID[clickNav] - 1].word
         for (let i = 0; i < cards.default[navID[clickNav]].length; i += 1) {
+          oneCard[i].removeAttribute('data-category')
           oneCard[i].classList.add('kidsCard')
           createImages[i].classList.remove('main-card-pic')
           createImages[i].classList.add('card-pic')
+          createImages[i].removeAttribute('href')
+          createImages[i].setAttribute('data-word', cards.default[navID[key]][i].word)
           createImages[i].src = cards.default[navID[key]][i].image
           cardText[i].innerText = cards.default[navID[key]][i].word
           audio[i].setAttribute('src', cards.default[navID[key]][i].audioSrc)
+          audioData[i].setAttribute('data-word', cards.default[navID[key]][i].word)
           cardText[i].setAttribute('data-translate', cards.default[navID[key]][i].translation)
           cardText[i].setAttribute('data-word', cards.default[navID[key]][i].word)
         }

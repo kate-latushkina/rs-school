@@ -73,13 +73,13 @@ header {
     &:first-child {
       margin-top: 80px;
     }
-    a {
-      color: white; 
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: yellow;
-      }
-    }
+  }
+}
+.burger_menu-line {
+  color: white; 
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: yellow;
   }
 }
 
