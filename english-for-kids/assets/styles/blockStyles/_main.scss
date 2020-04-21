@@ -26,12 +26,15 @@
 }
 main {
   flex-wrap: wrap;
+  display: flex;
 }
 #main-title {
-  text-align: center;
+  margin-right: 25px;
+  text-align: end;
   margin-top: 20px;
   font-size: 30px;
   color: rgb(241, 241, 4);
+  width: 52%;
 }
 .card-text {
   font-family: 'Montserrat', sans-serif;
@@ -86,6 +89,7 @@ main {
 .divGame {
   display: flex;
   justify-content: center;
+  width: 100%;
   padding-bottom: 20px;
 }
 .startGame {
@@ -111,4 +115,28 @@ main {
   background: $playBG;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.playImage {
+  filter: blur(3px);
+}
+
+.winImg {
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(../images/success.jpg);
+}
+
+.starPlace img {
+  max-width: 40px;
+}
+
+.starPlace {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  overflow: hidden;
+  width: 35%;
 }

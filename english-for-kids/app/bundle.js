@@ -7,6 +7,11 @@ const checkPlay = require('./scripts/play')
 window.addEventListener('load', () => {
   menu()
   createCards(cards)
+  if (document.querySelector('#main-title').innerText === document.querySelector('.burger_menu li a').text) {
+    document.querySelector('.burger_menu li a').style.color = 'yellow'
+  }
+  console.dir(document.querySelector('#main-title').innerText)
+  console.dir(document.querySelector('.burger_menu li a').text)
 })
 
 // create cards and click main card

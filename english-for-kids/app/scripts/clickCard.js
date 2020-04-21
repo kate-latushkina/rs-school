@@ -27,6 +27,7 @@ module.exports = function clickCard(e, clickNav) {
           oneCard[i].classList.remove('playCard')
           cardText[i].classList.remove('none')
           createImages[i].classList.add('main-card-pic')
+          createImages[i].classList.remove('playImage')
           createImages[i].classList.remove('card-pic')
           createImages[i].src = cards.default[navID[key]][i].image
           cardText[i].innerText = cards.default[navID[key]][i].word
@@ -44,6 +45,7 @@ module.exports = function clickCard(e, clickNav) {
           oneCard[i].classList.add('kidsCard')
           createImages[i].classList.remove('main-card-pic')
           createImages[i].classList.add('card-pic')
+          createImages[i].classList.remove('playImage')
           createImages[i].removeAttribute('href')
           createImages[i].setAttribute('data-word', cards.default[navID[key]][i].word)
           createImages[i].src = cards.default[navID[key]][i].image
