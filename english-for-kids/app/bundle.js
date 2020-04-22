@@ -31,12 +31,6 @@ document.addEventListener('click', (e) => {
     clickCard(e, clickElem)
     document.querySelector('.startGame').classList.add('none')
   }
-  // if (e.target.classList.contains('main-card-pic')) {
-  //   console.log(e.target.offsetParent)
-  //   console.dir(e.target.offsetParent)
-  //   const clickMainPic = e.target.offsetParent.innerText
-  //   clickCard(e, clickMainPic)
-  // }
 }, true)
 
 // Change train on play
@@ -59,9 +53,9 @@ trainPlayButton.onclick = () => {
   })
   checkPlay()
 }
-
+const main = document.querySelector('main')
 // reverse and audio
-document.body.addEventListener('click', (event) => {
+main.addEventListener('click', (event) => {
   if (event.target.classList.contains('startGame') !== true && event.target.offsetParent.classList.contains('kidsCard') === true) {
     const parent = event.target.offsetParent
     if (event.target.classList.contains('reverse')) {
