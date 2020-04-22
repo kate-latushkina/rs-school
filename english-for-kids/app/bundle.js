@@ -3,6 +3,7 @@ const cards = require('./scripts/cards')
 const createCards = require('./scripts/createCards')
 const clickCard = require('./scripts/clickCard')
 const checkPlay = require('./scripts/play')
+const audioGame = require('./scripts/audioGame')
 
 window.addEventListener('load', () => {
   menu()
@@ -10,8 +11,6 @@ window.addEventListener('load', () => {
   if (document.querySelector('#main-title').innerText === document.querySelector('.burger_menu li a').text) {
     document.querySelector('.burger_menu li a').style.color = 'yellow'
   }
-  console.dir(document.querySelector('#main-title').innerText)
-  console.dir(document.querySelector('.burger_menu li a').text)
 })
 
 // create cards and click main card
@@ -20,6 +19,16 @@ document.addEventListener('click', (e) => {
     const clickNav = e.srcElement.hash.substring(1)
     clickCard(e, clickNav)
     document.querySelector('.repeatButtonGame').classList.add('none')
+    document.querySelector('.startGame').classList.remove('none')
+    if (document.querySelector('.startGame').classList.contains('none') === false) {
+      document.querySelectorAll('.playCard').forEach((card) => {
+        card.childNodes[3].classList.add('none')
+      })
+      document.querySelectorAll('.starPlace img').forEach((img) => {
+        img.remove(img)
+      })
+      // document.querySelector('.starPlace').remove(document.querySelector('.starPlace'))
+    }
   }
   if (document.querySelector('#main-title').textContent === 'Main page') {
     const clickElem = e.srcElement.text
@@ -51,7 +60,7 @@ trainPlayButton.onclick = () => {
 
 // reverse and audio
 document.body.addEventListener('click', (event) => {
-  if (event.target !== document.querySelector('#nav') && event.target !== document.querySelector('.startGame')) {
+  if (event.target.classList.contains('startGame') !== true && event.target.offsetParent.classList.contains('kidsCard') === true) {
     const parent = event.target.offsetParent
     if (event.target.classList.contains('reverse')) {
       parent.classList.add('flip-card')
@@ -72,10 +81,15 @@ document.body.addEventListener('click', (event) => {
         parent.childNodes[1].innerHTML = parent.childNodes[1].dataset.word
       }
     })
-    if (event.target.classList.contains('card-pic') && event.target.offsetParent.classList.contains('playCard') === false) {
+    if (event.target.classList.contains('card-pic') === true && event.target.offsetParent.classList.contains('playCard') === false) {
       const audio = event.target.offsetParent.querySelector('audio')
       audio.setAttribute('src', event.target.offsetParent.querySelector('source').getAttribute('src'))
       audio.play()
     }
+  }
+  if (event.target.classList.contains('startGame')) {
+    document.querySelector('.repeatButtonGame').classList.remove('none')
+    event.target.classList.add('none')
+    audioGame()
   }
 })

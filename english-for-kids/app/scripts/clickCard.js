@@ -17,6 +17,7 @@ module.exports = function clickCard(e, clickNav) {
   const cardText = document.querySelectorAll('.mainCards p')
   const audio = document.querySelectorAll('audio source')
   const audioData = document.querySelectorAll('audio')
+  console.log(e.target)
   for (const key in navID) {
     if (clickNav === key) {
       const but = document.querySelectorAll('.reverse')
@@ -33,10 +34,10 @@ module.exports = function clickCard(e, clickNav) {
           cardText[i].innerText = cards.default[navID[key]][i].word
           createImages[i].removeAttribute('data-word')
           audioData[i].removeAttribute('data-word')
-          but.forEach((elemBut) => {
-            elemBut.classList.add('none')
-          })
         }
+        but.forEach((elemBut) => {
+          elemBut.classList.add('none')
+        })
       } else {
         const pageTitle = document.querySelector('#main-title')
         pageTitle.innerHTML = cards.default[0][navID[clickNav] - 1].word
