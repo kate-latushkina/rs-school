@@ -16,6 +16,9 @@
   cursor: pointer;
   transition: .3s;
   position: relative;
+  &:hover {
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,.3);
+  }
 }
 
 .cardsBG-train {
