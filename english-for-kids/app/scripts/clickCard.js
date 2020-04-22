@@ -21,22 +21,7 @@ module.exports = function clickCard(e, clickNav) {
     if (clickNav === key) {
       const but = document.querySelectorAll('.reverse')
       if (clickNav === 'Main') {
-        document.querySelector('#main-title').innerHTML = 'Main page'
-        for (let i = 0; i < cards.default[navID[clickNav]].length; i += 1) {
-          oneCard[i].classList.remove('kidsCard')
-          oneCard[i].classList.remove('playCard')
-          cardText[i].classList.remove('none')
-          createImages[i].classList.add('main-card-pic')
-          createImages[i].classList.remove('playImage')
-          createImages[i].classList.remove('card-pic')
-          createImages[i].src = cards.default[navID[key]][i].image
-          cardText[i].innerText = cards.default[navID[key]][i].word
-          createImages[i].removeAttribute('data-word')
-          audioData[i].removeAttribute('data-word')
-        }
-        but.forEach((elemBut) => {
-          elemBut.classList.add('none')
-        })
+        location.reload()
       } else {
         const pageTitle = document.querySelector('#main-title')
         pageTitle.innerHTML = cards.default[0][navID[clickNav] - 1].word
