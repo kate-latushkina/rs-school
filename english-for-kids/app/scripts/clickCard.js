@@ -17,7 +17,6 @@ module.exports = function clickCard(e, clickNav) {
   const cardText = document.querySelectorAll('.mainCards p')
   const audio = document.querySelectorAll('audio source')
   const audioData = document.querySelectorAll('audio')
-  console.log(e.target)
   for (const key in navID) {
     if (clickNav === key) {
       const but = document.querySelectorAll('.reverse')
@@ -62,4 +61,13 @@ module.exports = function clickCard(e, clickNav) {
       }
     }
   }
+  document.querySelectorAll('.burger_menu-line').forEach((li) => {
+    const title = document.querySelector('#main-title')
+    if (li.text === title.innerText) {
+      li.style.color = 'yellow'
+    }
+    else {
+      li.style.color = 'white'
+    }
+  })
 }

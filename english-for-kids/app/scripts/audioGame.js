@@ -1,11 +1,8 @@
 module.exports = function audioGame() {
   const repeatGame = document.querySelector('.repeatButtonGame')
   const kidsCard = document.querySelectorAll('.kidsCard')
-  // const startGame = document.querySelector('.startGame')
-  // const cardPic = document.querySelectorAll('.card-pic')
   const audioArray = []
   const audioSrcItems = document.querySelectorAll('.kidsCard source')
-  
   for (let i = 0; i < audioSrcItems.length; i += 1) {
     const audioSRC = audioSrcItems[i].getAttribute('src')
     kidsCard[i].querySelector('audio').setAttribute('src', audioSRC)
@@ -18,7 +15,6 @@ module.exports = function audioGame() {
   repeatGame.addEventListener('click', () => {
     audioArray[audioArray.length - 1].play()
   })
-
 
   document.querySelector('#main').addEventListener('click', (e) => {
     if (e.target.classList.contains('card-pic')) {

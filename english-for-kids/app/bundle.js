@@ -8,9 +8,6 @@ const audioGame = require('./scripts/audioGame')
 window.addEventListener('load', () => {
   menu()
   createCards(cards)
-  if (document.querySelector('#main-title').innerText === document.querySelector('.burger_menu li a').text) {
-    document.querySelector('.burger_menu li a').style.color = 'yellow'
-  }
 })
 
 // create cards and click main card
@@ -27,7 +24,6 @@ document.addEventListener('click', (e) => {
       document.querySelectorAll('.starPlace img').forEach((img) => {
         img.remove(img)
       })
-      // document.querySelector('.starPlace').remove(document.querySelector('.starPlace'))
     }
   }
   if (document.querySelector('#main-title').textContent === 'Main page') {
@@ -35,6 +31,12 @@ document.addEventListener('click', (e) => {
     clickCard(e, clickElem)
     document.querySelector('.startGame').classList.add('none')
   }
+  // if (e.target.classList.contains('main-card-pic')) {
+  //   console.log(e.target.offsetParent)
+  //   console.dir(e.target.offsetParent)
+  //   const clickMainPic = e.target.offsetParent.innerText
+  //   clickCard(e, clickMainPic)
+  // }
 }, true)
 
 // Change train on play
