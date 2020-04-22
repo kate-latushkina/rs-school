@@ -35,7 +35,7 @@ module.exports = function createCards(cards) {
   startGame.innerHTML = 'Start game'
   const imgButGame = document.createElement('img')
   div.appendChild(imgButGame)
-  imgButGame.setAttribute('src', '../assets/images/repeat.svg')
+  imgButGame.setAttribute('src', '../assets/images/repeat.png')
   imgButGame.classList.add('none')
   imgButGame.classList.add('repeatButtonGame')
   const correctAudio = document.createElement('audio')
