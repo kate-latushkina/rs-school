@@ -15,16 +15,12 @@ const CONFIG = {
   entry: {
     bundle: [
       path.join(dirApp, 'bundle'),
-      path.join(dirAssets, 'styles', 'index.scss')
-    ]
+      path.join(dirAssets, 'styles', 'index.scss'),
+    ],
   },
-  resolve: {
-    modules: [dirNode, dirApp, dirAssets]
-  },
+  resolve: { modules: [dirNode, dirApp, dirAssets] },
   plugins: [
-    new webpack.DefinePlugin({
-      IS_DEV,
-    }),
+    new webpack.DefinePlugin({ IS_DEV }),
 
 
     new HtmlWebpackPlugin({
@@ -32,15 +28,11 @@ const CONFIG = {
       filename: 'index.html',
       title: 'Title',
       excludeChunks: ['item'],
-      templateParameters: {
-        SITE,
-      },
+      templateParameters: { SITE },
       favicon: './favicon.ico',
       SITE,
     }),
-    new MiniCssExtractPlugin({
-      filename: 'assets/styles/[name].[hash].css',
-    })
+    new MiniCssExtractPlugin({ filename: 'assets/styles/[name].[hash].css' }),
   ]
     .concat([
       new HtmlBeautifyPlugin({
@@ -61,10 +53,10 @@ const CONFIG = {
               'php',
               '?php',
               'a',
-            ]
-          }
-        }
-      })
+            ],
+          },
+        },
+      }),
     ]),
   module: {
     rules: [
@@ -79,9 +71,7 @@ const CONFIG = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: [/(node_modules)/, /(vendor)/],
-        options: {
-          compact: true,
-        }
+        options: { compact: true },
       },
 
       // HTML templates
@@ -97,22 +87,18 @@ const CONFIG = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: IS_DEV,
-            }
+            options: { sourceMap: IS_DEV },
           },
           {
             loader: 'postcss-loader',
             options: {
               plugins: [
-                autoprefixer({
-                  browsers: ['ie >= 8', 'last 4 version'],
-                })
+                autoprefixer({ browsers: ['ie >= 8', 'last 4 version'] }),
               ],
               sourceMap: IS_DEV,
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
 
       // CSS / SASS
@@ -122,47 +108,43 @@ const CONFIG = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: IS_DEV,
-            }
+            options: { sourceMap: IS_DEV },
           },
           {
             loader: 'postcss-loader',
             options: {
               plugins: [
-                autoprefixer({
-                  browsers: ['ie >= 8', 'last 4 version']
-                })
+                autoprefixer({ browsers: ['ie >= 8', 'last 4 version'] }),
               ],
-              sourceMap: IS_DEV
-            }
+              sourceMap: IS_DEV,
+            },
           },
           {
             loader: 'group-css-media-queries-loader',
-            options: {
-              sourceMap: IS_DEV
-            }
+            options: { sourceMap: IS_DEV },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: IS_DEV
+              sourceMap: IS_DEV,
               //   includePaths: [dirAssets]
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
 
       // IMAGES & FONTS
       {
-        test: /\.(jpe?g|png|gif|svg|ttf|eot|woff?2)$/,
+        test: /\.(jpe?g|png|gif|ttf|eot|woff?2)$/,
         loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]'
-        }
-      }
-    ]
-  }
+        options: { name: '[path][name].[ext]' },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
+    ],
+  },
 }
 
 module.exports = CONFIG
