@@ -1,7 +1,10 @@
+const audioArray = []
+
 module.exports = function audioGame() {
   const repeatGame = document.querySelector('.repeatButtonGame')
   const kidsCard = document.querySelectorAll('.kidsCard')
-  const audioArray = []
+  
+  audioArray.length = 0
   const audioSrcItems = document.querySelectorAll('.kidsCard source')
   for (let i = 0; i < audioSrcItems.length; i += 1) {
     const audioSRC = audioSrcItems[i].getAttribute('src')
@@ -17,7 +20,7 @@ module.exports = function audioGame() {
   })
 
   document.querySelector('#main').addEventListener('click', (e) => {
-    if (e.target.classList.contains('card-pic')) {
+    if (e.target.classList.contains('card-pic') && e.target.offsetParent.classList.contains('playCard')) {
       if (e.target.dataset.word === audioArray[audioArray.length - 1].dataset.word) {
         document.querySelector('#correct').play()
         audioArray.pop()
@@ -25,7 +28,6 @@ module.exports = function audioGame() {
         const star = document.createElement('img')
         star.setAttribute('src', './assets/images/star-win.svg')
         document.querySelector('.starPlace').appendChild(star)
-
         if (audioArray.length !== 0) {
           audioArray[audioArray.length - 1].play()
         }
@@ -63,7 +65,7 @@ module.exports = function audioGame() {
             location.reload()
           }, 3000)
         }
-      } else {
+      } else if (e.target.classList.contains('playImage') === false) {
         document.getElementById('error').play()
         const starLouse = document.createElement('img')
         starLouse.setAttribute('src', './assets/images/star.svg')

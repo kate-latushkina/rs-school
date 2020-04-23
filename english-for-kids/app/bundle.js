@@ -16,15 +16,7 @@ document.addEventListener('click', (e) => {
     const clickNav = e.srcElement.hash.substring(1)
     clickCard(e, clickNav)
     document.querySelector('.repeatButtonGame').classList.add('none')
-    document.querySelector('.startGame').classList.remove('none')
-    if (document.querySelector('.startGame').classList.contains('none') === false) {
-      document.querySelectorAll('.playCard').forEach((card) => {
-        card.childNodes[3].classList.add('none')
-      })
-      document.querySelectorAll('.starPlace img').forEach((img) => {
-        img.remove(img)
-      })
-    }
+    checkPlay()
   }
   if (document.querySelector('#main-title').textContent === 'Main page') {
     const clickElem = e.srcElement.text
