@@ -21,7 +21,6 @@ document.addEventListener('click', (e) => {
   if (document.querySelector('#main-title').textContent === 'Main page') {
     const clickElem = e.srcElement.text
     clickCard(e, clickElem)
-    document.querySelector('.startGame').classList.add('none')
   }
 }, true)
 

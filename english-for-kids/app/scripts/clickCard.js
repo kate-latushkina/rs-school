@@ -1,4 +1,5 @@
 const cards = require('./cards')
+const checkPlay = require('./play')
 
 module.exports = function clickCard(e, clickNav) {
   const navID = {
@@ -43,6 +44,9 @@ module.exports = function clickCard(e, clickNav) {
         but.forEach((elemBut) => {
           elemBut.classList.remove('none')
         })
+        if (document.querySelector('.check').checked) {
+          checkPlay()
+        }
       }
     }
   }
@@ -50,8 +54,7 @@ module.exports = function clickCard(e, clickNav) {
     const title = document.querySelector('#main-title')
     if (li.text === title.innerText) {
       li.style.color = 'yellow'
-    }
-    else {
+    } else {
       li.style.color = 'white'
     }
   })
