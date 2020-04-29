@@ -1,0 +1,10 @@
+// @import "~bulma/bulma";
+
+@import "./base-resources/colors";
+@import "./base-resources/fonts";
+@import "./base-resources/normalize";
+@import "./base-resources/specification";
+
+@import "./blockStyles/header";
+@import "./blockStyles/index";
+@import "./blockStyles/category";
