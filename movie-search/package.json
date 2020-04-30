@@ -1,5 +1,5 @@
 {
-  "name": "english-for-kids",
+  "name": "movie-search",
   "version": "1.0.0",
   "main": "bundle.js",
   "scripts": {
@@ -27,6 +27,8 @@
     "cross-env": "^6.0.3",
     "css-loader": "^3.4.0",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "file-loader": "^5.0.2",
     "glob": "^7.1.6",
     "group-css-media-queries-loader": "^3.0.2",
