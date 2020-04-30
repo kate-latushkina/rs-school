@@ -1,0 +1,22 @@
+footer {
+  background-color: black;
+  opacity: 0.5;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.school-text,
+.account-text {
+  color: white;
+  font-size: 20px;
+  &:hover {
+    color: #844DDE;
+  }
+}
+
