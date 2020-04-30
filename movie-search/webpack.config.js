@@ -35,7 +35,7 @@ const CONFIG = {
       templateParameters: {
         SITE
       },
-      // favicon: "./favicon.ico"
+      favicon: "./favicon.ico"
       // SITE: SITE
     }),
     new HtmlWebpackPlugin({
