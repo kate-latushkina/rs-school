@@ -1,6 +1,7 @@
 html {
   font-size: 10px;
   line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -46,7 +47,7 @@ hr {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   min-height: 100vh;
   overflow-x: hidden;
 }
