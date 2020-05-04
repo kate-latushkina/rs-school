@@ -1,22 +1,26 @@
-module.exports = function createCards(data) {
-  const mainBlock = document.querySelector('.movie')
-  const filmBlock = document.createElement('div')
-  filmBlock.classList.add('film-block')
-  mainBlock.appendChild(filmBlock)
+module.exports = function createCards(data, arr) {
+  const slide = document.createElement('div')
+  slide.classList.add('swiper-slide')
+
   const filmTitle = document.createElement('a')
-  filmBlock.appendChild(filmTitle)
+  slide.appendChild(filmTitle)
   filmTitle.classList.add('film-title')
-  filmTitle.innerHTML = data.Title
+  filmTitle.setAttribute('href', `https://www.imdb.com/title/${data.imdbID}/videogallery/`)
+  filmTitle.innerText = data.Title
   const poster = document.createElement('img')
   poster.setAttribute('src', `${data.Poster}`)
+  // if (data.Poster === 'N/A') {
+  //   console.log(77)
+  // }
   poster.classList.add('poster')
-  filmBlock.appendChild(poster)
+  slide.appendChild(poster)
   const filmYear = document.createElement('div')
-  filmBlock.appendChild(filmYear)
+  slide.appendChild(filmYear)
   filmYear.classList.add('film-year')
-  filmYear.innerHTML = data.Year
+  filmYear.innerText = data.Year
   const filmImbd = document.createElement('div')
-  filmBlock.appendChild(filmImbd)
+  slide.appendChild(filmImbd)
   filmImbd.classList.add('film-imbd')
-  filmImbd.innerHTML = data.imdbRating
+  filmImbd.innerText = data.imdbRating
+  arr.push(slide)
 }

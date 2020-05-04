@@ -59,7 +59,9 @@
     "url": "https://github.com/rolling-scopes-school/kate-latushkina-RS2020Q1/tree/movie-search/issues"
   },
   "homepage": "https://github.com/rolling-scopes-school/kate-latushkina-RS2020Q1/tree/movie-search#readme",
-  "dependencies": {},
+  "dependencies": {
+    "swiper": "^5.3.8"
+  },
   "keywords": [],
   "description": ""
 }
