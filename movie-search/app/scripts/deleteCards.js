@@ -1,5 +1,5 @@
 module.exports = function deleteCards() {
-  document.querySelectorAll('.film-block').forEach((film) => {
+  document.querySelectorAll('.swiper-slide').forEach((film) => {
     film.remove(film)
   })
 }
