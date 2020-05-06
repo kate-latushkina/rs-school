@@ -2,8 +2,6 @@ import Swiper from 'swiper'
 
 const mySwiper = new Swiper('.swiper-container', {
   direction: 'horizontal',
-  // loop: true,
-  // spaceBetween: 15,
   slidesPerView: 4,
   initialSlide: 0,
   pagination: {
@@ -17,18 +15,23 @@ const mySwiper = new Swiper('.swiper-container', {
   breakpoints: {
     320: {
       slidesPerView: 1,
+      spaceBetween: 20,
     },
     530: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    861: {
+    680: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 20,
     },
-    1251: {
+    980: {
       slidesPerView: 4,
       spaceBetween: 30,
+    },
+    1050: {
+      slidesPerView: 4,
+      spaceBetween: 20,
     },
   },
 })
