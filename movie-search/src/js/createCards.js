@@ -10,7 +10,7 @@ function createCards(data, arr) {
   const poster = document.createElement('img')
   poster.setAttribute('src', `${data.Poster}`)
   if (data.Poster === 'N/A') {
-    poster.setAttribute('src', './../assets/images/no-poster.jpg')
+    poster.setAttribute('src', '../img/no-poster.jpg')
   }
   poster.classList.add('poster')
   slide.appendChild(poster)
