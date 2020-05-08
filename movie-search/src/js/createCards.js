@@ -22,6 +22,14 @@ function createCards(data, arr) {
   slide.appendChild(filmImbd)
   filmImbd.classList.add('film-imbd')
   filmImbd.innerText = data.imdbRating
+  const reverseButton = document.createElement('button')
+  reverseButton.classList.add('reverse')
+  slide.appendChild(reverseButton)
+  const plot = document.createElement('p')
+  slide.appendChild(plot)
+  plot.classList.add('none')
+  plot.classList.add('plot')
+  plot.innerHTML = data.Plot
   arr.push(slide)
 }
 

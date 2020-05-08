@@ -106,8 +106,6 @@ header {
   opacity: 0.4;
 }
 main {
-  // padding: 0 0 40px 0;
-  // height: 100vh;
   padding-bottom: 90px;
 }
 .search {
@@ -193,6 +191,22 @@ main {
   background-color: white;
   border-radius: 5px;
   max-width: 270px;
+  transition: ease 0.8s;
+}
+.none {
+  display: none;
+}
+.plot {
+  font-size: 20px;
+  width: 100%;
+  height: 400px;
+  padding: 15px;
+  transform: scaleX(-1);
+  margin-top: -400px;
+  text-align: justify;
+}
+.transform {
+  transform: scaleX(-1);
 }
 .film-title {
   padding: 10px;
@@ -268,10 +282,30 @@ main {
   background-color: white;
   border-radius: 10px;
 }
-.page {
-  width: 100%;
-  height: 20px;
-  text-align: center;
+.reverse {
+  position: absolute;
+  background-image: url(../img/reverse.jpg);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  bottom: 10px;
+  right: 15px;
+  display: block;
+  z-index: 4;
+}
+.opacity {
+  opacity: 0;
+}
+.flip-card {
+  transform: rotateY(180deg);
+  transition: ease 0.8s;
 }
 
 @media (min-width: 1050px) {
@@ -307,4 +341,29 @@ main {
   .search-input {
     padding: 8px;
   }
+}
+.spinner{
+  width: 40px;
+  height: 40px;
+  border: 3px solid transparent;
+  border-left: 3px solid #d6d815;
+  border-right: 3px solid #d6d815;
+  border-bottom: 3px solid #d6d815;
+  border-radius: 50px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 1px;
+  right: 27%;
+}
+@keyframes spin{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinner-bg{
+  border-width: 10px;
+}
+.spinner-primary{
+  border-color: #5eaa5e;
+  border-top-color: transparent;
 }
