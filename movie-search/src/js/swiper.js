@@ -2,12 +2,13 @@ import Swiper from 'swiper'
 
 const mySwiper = new Swiper('.swiper-container', {
   direction: 'horizontal',
+  loop: false,
   slidesPerView: 4,
   initialSlide: 0,
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'fraction',
-  },
+  // pagination: {
+  //   el: '.swiper-pagination',
+  //   type: 'fraction',
+  // },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -17,7 +18,7 @@ const mySwiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 20,
     },
-    530: {
+    430: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
