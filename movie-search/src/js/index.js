@@ -2,6 +2,10 @@ import '../css/style.scss'
 
 import searchMovies from './searchMovies'
 import randomFilms from './randomFilms'
+import arrayLetters from './button';
+import clickShift from './shiftKey';
+import createKeyboard from './createKeyboard';
+import changeLanguage from './changeLanguage';
 
 window.addEventListener('load', () => {
   randomFilms()
@@ -20,10 +24,16 @@ document.querySelector('.clear-img-input').addEventListener('click', () => {
 input.addEventListener('blur', () => {
   input.focus()
 })
-
+const keyboard = document.querySelector('.keyboard')
 input.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     searchMovies()
+  }
+})
+document.addEventListener('click', (e) => {
+  if (e.srcElement.innerText === 'ENTER') {
+    searchMovies()
+    keyboard.classList.add('opacity')
   }
 })
 
@@ -52,4 +62,144 @@ document.querySelector('.swiper-wrapper').addEventListener('click', (event) => {
       parent.childNodes[5].classList.add('none')
     }
   })
+})
+
+document.querySelector('.keyboard-img-input').addEventListener('click', () => {
+  if (keyboard.childNodes.length === 0) {
+    createKeyboard()
+  }
+  if (keyboard.classList.contains('opacity') === false) {
+    keyboard.classList.add('opacity')
+  }
+  else {
+    keyboard.classList.remove('opacity')
+  }
+})
+
+let lang = localStorage.getItem('lang');
+
+keyboard.addEventListener('mousedown', (elem) => {
+  const keyButton = document.querySelectorAll('.key-but')
+  const capsLock = document.querySelector('.CapsLock')
+  const languages = {
+    EN: 'en',
+    RU: 'ru',
+  }
+  if (localStorage.getItem('lang') === null) {
+    localStorage.setItem('lang', languages.EN)
+  }
+  
+  const elemCode = elem.srcElement.textContent
+  if (elem.which === 1) {
+    
+    // CapsLock
+    if (elemCode === 'CapsLock') {
+      if (capsLock.classList.contains('button-active')) {
+        elem.target.classList.remove('button-active')
+        for (let i = 0; i < keyButton.length; i += 1) {
+          keyButton[i].innerHTML = arrayLetters[i].text[lang]
+        }
+      } else {
+        elem.target.classList.add('button-active')
+        for (let i = 0; i < keyButton.length; i += 1) {
+          keyButton[i].innerHTML = arrayLetters[i].shiftText[lang]
+        }
+      }
+    }
+
+    // Win change language
+    if (elemCode === 'En/Ru') {
+      changeLanguage(languages)
+      lang = localStorage.getItem('lang')
+      for (let i = 0; i < keyButton.length; i += 1) {
+        keyButton[i].innerHTML = arrayLetters[i].text[lang]
+      }
+    }
+
+    // Tab
+    if (elemCode === 'Tab') {
+      elem.preventDefault()
+      input.value += '\t'
+    }
+
+    // Shift
+    if (elemCode === 'Shift') {
+      clickShift(keyButton, elem, lang)
+      elem.target.classList.add('button-active')
+    }
+
+    // arrows
+    if (elemCode === '◄') {
+      elem.target.classList.add('button-active')
+      if (input.selectionStart !== 0) {
+        input.selectionStart -= 1
+        input.selectionEnd -= 1
+      }
+    }
+    if (elemCode === '►') {
+      elem.target.classList.add('button-active')
+      if (input.selectionStart !== input.value.length) {
+        input.selectionStart += 1
+        input.selectionEnd += 0
+      }
+    }
+    if (elemCode === '▲') {
+      elem.target.classList.add('button-active')
+      if (input.selectionStart !== 0) {
+        input.selectionStart -= 81
+        input.selectionEnd -= 81
+      }
+    }
+    if (elemCode === '▼') {
+      elem.target.classList.add('button-active')
+      if (input.selectionStart !== input.value.length) {
+        input.selectionStart += 81
+        input.selectionEnd += 0
+      }
+    }
+
+    // Backspace
+    if (elemCode === 'Backspace') {
+      elem.target.classList.add('button-active')
+      input.value = input.value.slice(0, -1)
+    } else {
+      if (elemCode !== 'CapsLock' && elemCode !== 'Backspace' && elemCode !== 'Ctrl' && elemCode !== 'ENTER' && elemCode !== 'Tab' && elemCode !== 'Alt' && elemCode !== 'En/Ru' && elemCode !== 'Shift') {
+        for (let i = 0; i < keyButton.length; i += 1) {
+          if (elemCode === arrayLetters[i].text[lang]) {
+            input.value += arrayLetters[i].text[lang]
+            elem.target.classList.add('button-active')
+          }
+          if (elemCode === arrayLetters[i].shiftText[lang]) {
+            input.value += arrayLetters[i].shiftText[lang]
+            elem.target.classList.add('button-active')
+          }
+        }
+      }
+      if (elemCode === 'Ctrl' || elemCode === 'ENTER' || elemCode === 'Tab' || elemCode === 'Alt' || elemCode === 'En/Ru') {
+        elem.target.classList.add('button-active')
+      }
+    }
+  }
+})
+
+keyboard.addEventListener('mouseout', (elem) => {
+  const elemCode = elem.srcElement.outerText
+  if (elemCode !== 'CapsLock' && elemCode !== 'Shift') {
+    elem.target.classList.remove('button-active')
+  }
+})
+
+keyboard.addEventListener('mouseup', (elem) => {
+  const elemCode = elem.srcElement.outerText
+  if (elemCode !== 'CapsLock') {
+    elem.target.classList.remove('button-active')
+  }
+  if (elemCode === 'Shift') {
+    const keyBut = document.querySelectorAll('.key-but')
+    for (let i = 0; i < keyBut.length; i += 1) {
+      if (keyBut[i].textContent === arrayLetters[i].shiftText[lang]) {
+        keyBut[i].innerHTML = arrayLetters[i].text[lang]
+      }
+    }
+  }
 })
