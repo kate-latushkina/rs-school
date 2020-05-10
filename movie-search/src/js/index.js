@@ -10,10 +10,11 @@ import changeLanguage from './changeLanguage';
 window.addEventListener('load', () => {
   randomFilms()
 })
-
+const keyboard = document.querySelector('.keyboard')
 const button = document.querySelector('.search-button')
 button.addEventListener('click', () => {
   searchMovies()
+  keyboard.classList.add('none')
 })
 
 const input = document.querySelector('.search-input')
@@ -24,7 +25,7 @@ document.querySelector('.clear-img-input').addEventListener('click', () => {
 input.addEventListener('blur', () => {
   input.focus()
 })
-const keyboard = document.querySelector('.keyboard')
+
 input.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     searchMovies()
@@ -33,7 +34,7 @@ input.addEventListener('keyup', (e) => {
 document.addEventListener('click', (e) => {
   if (e.srcElement.innerText === 'ENTER') {
     searchMovies()
-    keyboard.classList.add('opacity')
+    keyboard.classList.add('none')
   }
 })
 
@@ -68,11 +69,11 @@ document.querySelector('.keyboard-img-input').addEventListener('click', () => {
   if (keyboard.childNodes.length === 0) {
     createKeyboard()
   }
-  if (keyboard.classList.contains('opacity') === false) {
-    keyboard.classList.add('opacity')
+  if (keyboard.classList.contains('none') === false) {
+    keyboard.classList.add('none')
   }
   else {
-    keyboard.classList.remove('opacity')
+    keyboard.classList.remove('none')
   }
 })
 

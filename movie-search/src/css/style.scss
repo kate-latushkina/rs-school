@@ -393,18 +393,23 @@ main {
   .search-button {
     margin-left: 10px;
   }
-  .info {
-    height: 70px;
-  }
 }
 @media (max-width: 768px) {
   .search-input {
     padding-right:10px;
   }
+  .spinner {
+    right: 30%;
+  }
 }
 @media (max-width: 480px) {
   .search-input {
     font-size: 17px;
+  }
+}
+@media (max-width: 540px) {
+  .spinner {
+    right: 38%;
   }
 }
 @media (max-width: 425px) {
@@ -414,8 +419,13 @@ main {
   .search-input {
     padding: 8px;
   }
+}
+@media (max-width: 350px) {
+  .spinner {
+    right: 43%;
   }
-  .spinner{
+}
+.spinner{
   width: 40px;
   height: 40px;
   border: 3px solid transparent;
@@ -427,7 +437,7 @@ main {
   position: absolute;
   top: 1px;
   right: 27%;
-  }
+}
 @keyframes spin{
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
