@@ -5,10 +5,6 @@ const mySwiper = new Swiper('.swiper-container', {
   loop: false,
   slidesPerView: 4,
   initialSlide: 0,
-  // pagination: {
-  //   el: '.swiper-pagination',
-  //   type: 'fraction',
-  // },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',

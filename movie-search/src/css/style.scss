@@ -393,6 +393,9 @@ main {
   .search-button {
     margin-left: 10px;
   }
+  .info {
+    height: 70px;
+  }
 }
 @media (max-width: 768px) {
   .search-input {
@@ -411,8 +414,8 @@ main {
   .search-input {
     padding: 8px;
   }
-}
-.spinner{
+  }
+  .spinner{
   width: 40px;
   height: 40px;
   border: 3px solid transparent;
@@ -424,7 +427,7 @@ main {
   position: absolute;
   top: 1px;
   right: 27%;
-}
+  }
 @keyframes spin{
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
