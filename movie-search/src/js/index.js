@@ -22,10 +22,6 @@ document.querySelector('.clear-img-input').addEventListener('click', () => {
   input.value = ''
 })
 
-input.addEventListener('blur', () => {
-  input.focus()
-})
-
 input.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     searchMovies()
@@ -86,10 +82,6 @@ keyboard.addEventListener('mousedown', (elem) => {
     EN: 'en',
     RU: 'ru',
   }
-  if (localStorage.getItem('lang') === null) {
-    localStorage.setItem('lang', languages.EN)
-  }
-  
   const elemCode = elem.srcElement.textContent
   if (elem.which === 1) {
     
@@ -174,7 +166,7 @@ keyboard.addEventListener('mousedown', (elem) => {
             input.value += arrayLetters[i].shiftText[lang]
             elem.target.classList.add('button-active')
           }
-        }
+        }       
       }
       if (elemCode === 'Ctrl' || elemCode === 'ENTER' || elemCode === 'Tab' || elemCode === 'Alt' || elemCode === 'En/Ru') {
         elem.target.classList.add('button-active')
@@ -204,3 +196,5 @@ keyboard.addEventListener('mouseup', (elem) => {
     }
   }
 })
+
+// alert('Привет, проверяющий. Если возникла ошибка с вводом текста с клавиатуры, то измени язык с помощью виртуальной клавиатуры (En/Ru) или перезагрузи страницу и все заработатет. Если возникнут вопросы по поводу работы, то пиши в телеграм @ekaterina-latushkina')

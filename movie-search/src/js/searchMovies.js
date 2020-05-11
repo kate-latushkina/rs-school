@@ -48,7 +48,6 @@ async function searchMovies(pageNumber = 1) {
               createCards(dataFilm, slideArray)
               mySwiper.appendSlide(slideArray)
             })
-          document.querySelector('.swiper-pagination').innerHTML = `${pageNumber} / ${Math.ceil(data.totalResults / 10)}`
         })
       }
       document.querySelector('.here').classList.remove('spinner')

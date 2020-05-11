@@ -12,7 +12,6 @@ function randomFilms() {
         mySwiper.appendSlide(slidesArray)
         mySwiper.update()
       })
-      document.querySelector('.swiper-pagination').innerHTML = '1 / 1'
   })
 }
 export default randomFilms

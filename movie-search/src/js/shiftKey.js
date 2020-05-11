@@ -8,7 +8,6 @@ function clickShift(searchButton, keyCode, lang) {
     if (keyCode === 'ShiftRight') {
       document.querySelector('.ShiftRight').classList.add('button-active')
     }
-    // eslint-disable-next-line no-param-reassign
     searchButton[i].innerHTML = arrayLetters[i].shiftText[lang]
   }
 }
