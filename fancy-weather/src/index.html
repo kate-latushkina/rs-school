@@ -8,11 +8,55 @@
     <meta name="author" lang="en" content="Ekaterina Latushkina" />
     <title>Fancy Weather</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    
+    <div class="container">
+        <div class="main-buttons">
+            <div class="general-buttons">
+                <button class="change-image general"></button>
+                <button class="change-language general"></button>
+                <button class="change-temperature fahrenheit general off-button">&deg;F</button>
+                <button class="change-temperature celsius general">&deg;C</button>
+            </div>
+            <div class="search">
+                <input type="text" class="search-input" placeholder="Search city">
+                <button class="button-search">search</button>
+            </div>
+        </div>
+        <main>
+            <div class="weather">
+                <p class="location"></p>
+                <div class="weather-now">
+                    <div class="left-side-weather">
+                        <p class="time"></p>
+                        <p class="temperature-now"></p>
+                    </div>
+                    <div class="right-side-weather">
+                        <div class="icon-cloud"></div>
+                        <div class="another-info">
+                            <p class="cloudy"></p>
+                            <p class="feels-like"></p>
+                            <p class="wind"></p>
+                            <p class="humidity"></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="map">
+
+            </div>
+            <div class="coordinates">
+                <p class="lat"></p>
+                <p class="lon"></p>
+            </div>
+        </main>
+    </div>
+
 </body>
 
 </html>
