@@ -22,12 +22,18 @@ setInterval(() => {
 
 const searchButton = document.querySelector('.button-search')
 searchButton.addEventListener('click', () => {
+  document.querySelectorAll('.days-temperature').forEach((elem) => {
+    elem.remove(elem)
+  })
   getWeatherDay(2)
 })
 
 const searchInput = document.querySelector('.search-input')
 searchInput.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
+    document.querySelectorAll('.days-temperature').forEach((elem) => {
+      elem.remove(elem)
+    })
     getWeatherDay(2)
     searchInput.value = ''
   }

@@ -2,6 +2,7 @@ body {
   text-align: center;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 .container {
   max-width: 92%;
@@ -31,7 +32,7 @@ background-repeat: no-repeat;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  margin: 3rem 0;
+  padding: 3rem 0;
 }
 
 .general-buttons, .search, main {
@@ -127,23 +128,25 @@ background-repeat: no-repeat;
   text-transform: uppercase;
   font-weight: 700;
   text-align: left;
-  margin-bottom: 0;
+  margin: 0;
 }
 .time {
   text-align: left;
   font-size: 20px;
 }
 .weather {
-  width: 70%;
+  width: 60%;
 }
 .temperature-now {
   font-size: 200px;
-  text-align: bottom;
+  text-align: center;
   margin: 0;
+  font-weight: 600;
 }
 
 .weather-now {
   display: flex;
+  justify-content: space-between;
 }
 .left-side-weather {
   width: 60%;
@@ -156,4 +159,31 @@ background-repeat: no-repeat;
 }
 .another-info p {
   margin: 5px;
+}
+
+.week-temperature {
+  display: flex;
+  width: 60%;
+  overflow: hidden;
+  position: relative;
+}
+
+.week-day, .week-temp-day {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.week-temp-days {
+  justify-content: space-between;
+  display: flex;
+}
+
+.swiper {
+  width: 60% !important;
+  position: relative;
+}
+
+.swiper-button-next, .swiper-button-prev { 
+  outline: none;
 }
