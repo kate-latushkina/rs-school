@@ -20,7 +20,9 @@ function createWeather(data, arr) {
     const weekTitleDay = document.createElement('h4')
     daysTemp.appendChild(weekTitleDay)
     weekTitleDay.classList.add('week-day')
-    const weekIcon = document.createElement('div')
+    const weekIcon = document.createElement('img')
+    weekIcon.setAttribute('src', `./img/rain.svg`)
+    // weekIcon.src = './img/wind.svg'
     daysTemp.appendChild(weekIcon)
     weekIcon.classList.add('week-icon-temp')
     const weekDayTemp = document.createElement('span')
@@ -29,7 +31,7 @@ function createWeather(data, arr) {
     
     const currentDate = new Date(newDataList[i].dt_txt).toLocaleString('en', {weekday: 'long',})
     weekTitleDay.innerHTML = currentDate
-    weekIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${newDataList[i].weather[0].icon}@2x.png">`
+    // weekIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${}@2x.png">`
 
     weekDayTemp.innerHTML = `${(newDataList[i].main.temp - 273).toFixed(1)}${'&deg'}`
     arr.push(daysTemp)
