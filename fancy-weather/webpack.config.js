@@ -1,169 +1,46 @@
-const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+require('babel-polyfill');
 
-const ENV = process.env.npm_lifecycle_event;
-const isDev = ENV === 'dev';
-const isProd = ENV === 'build';
-
-function setDevTool() {
-  if (isDev) {
-    return 'cheap-module-eval-source-map';
-  } else {
-    return 'none';
-  }
-}
-
-function setDMode() {
-  if (isProd) {
-    return 'production';
-  } else {
-    return 'development';
-  }
-}
-
-const config = {
-  target: "web",
-  entry: {index: './src/js/index.js'},
+module.exports = {
+  entry: `${__dirname}/src/app/index.js`,
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
+    path: `${__dirname}/dist`,
+    filename: 'bundle.js',
+    publicPath: '/',
   },
-  mode: setDMode(),
-  devtool: setDevTool(),
   module: {
-    rules: [{
-        test: /\.html$/,
-        use: [{
-          loader: 'html-loader',
-          options: {
-            minimize: false
-          }
-        }]
-      },
+    rules: [
       {
         test: /\.js$/,
-        use: ['babel-loader'/* , 'eslint-loader' */],
+        use: ['babel-loader', 'eslint-loader'],
         exclude: [
-          /node_modules/
-        ]
+          /node_modules/,
+        ],
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          }, {
-            loader: 'postcss-loader',
-            options: { sourceMap: true, config: { path: './postcss.config.js' } }
-          }
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          }, {
-            loader: 'postcss-loader',
-            options: { sourceMap: true, config: { path: './postcss.config.js' } }
-          }, {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(jpe?g|png|svg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'img',
-              name: '[name].[ext]'
-            }},
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug : true,
-              mozjpeg: {
-                progressive: true,
-                quality: 75
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: [0.65, 0.90],
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-                optimizationLevel: 1
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff|woff2|ttf|otf|eot)$/,
+        test: /\.(sass|scss)$/,
         use: [{
-          loader: 'file-loader',
-          options: {
-            outputPath: 'fonts'
-          }
-        }]
-      }
-    ]
+          loader: 'style-loader',
+        }, {
+          loader: 'css-loader',
+        }, {
+          loader: 'sass-loader',
+        }],
+      },
+    ],
   },
-
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style.css',
-    }),
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html'
-    }),
-    new CopyWebpackPlugin([
-      // {from: './src/static', to: './'},
-      // {from: './src/img', to: './img/'},
+    new CopyPlugin([
+      { from: 'src/public' },
     ]),
+    new HtmlWebpackPlugin({
+      template: `${__dirname}/src/public/index.html`,
+      inject: 'body',
+    }),
   ],
-
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 3000,
-    overlay: true,
-    stats: 'errors-only',
-    clientLogLevel: 'none'
-  }
-}
-
-if (isProd) {
-  config.plugins.push(
-    new UglifyJSPlugin(),
-  );
+    contentBase: './src/public',
+    port: 7700,
+  },
 };
-
-module.exports = config;

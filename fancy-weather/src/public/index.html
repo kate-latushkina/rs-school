@@ -7,7 +7,6 @@
     <meta name="description" content="Canvas" />
     <meta name="author" lang="en" content="Ekaterina Latushkina" />
     <title>Fancy Weather</title>
-    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 </head>
@@ -17,13 +16,17 @@
         <div class="main-buttons">
             <div class="general-buttons">
                 <button class="change-image general"></button>
-                <button class="change-language general"></button>
+                <select class="change-language general">
+                    <option value="en">EN</option>
+                    <option value="ru">RU</option>
+                    <option value="be">BE</option>
+                </select>
                 <button class="change-temperature fahrenheit general off-button">&deg;F</button>
                 <button class="change-temperature celsius general">&deg;C</button>
             </div>
             <div class="search">
-                <input type="text" class="search-input" placeholder="Search city">
-                <button class="button-search">search</button>
+                <input type="text" class="search-input" placeholder="">
+                <button class="button-search"></button>
             </div>
         </div>
         <main>
@@ -35,7 +38,7 @@
                         <p class="temperature-now"></p>
                     </div>
                     <div class="right-side-weather">
-                        <div class="icon-cloud"></div>
+                        <img class="icon-cloud" /> 
                         <div class="another-info">
                             <p class="cloudy"></p>
                             <p class="feels-like"></p>
@@ -43,18 +46,16 @@
                             <p class="humidity"></p>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <div class="map">
-
+            <div class="geolocation">
+                <div class="map"></div>
+                <div class="coordinates">
+                    <p class="lat"></p>
+                    <p class="lon"></p>
+                </div>
             </div>
-            <div class="coordinates">
-                <p class="lat"></p>
-                <p class="lon"></p>
-                <!-- <img src="./img/rain.svg" alt=""> -->
-            </div>
+            
         </main>
         <div class="swiper">
             <div class="swiper-button-prev"></div>
@@ -64,7 +65,5 @@
             <div class="swiper-button-next"></div>
         </div>        
     </div>
-
 </body>
-
 </html>

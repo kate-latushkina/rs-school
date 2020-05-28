@@ -11,9 +11,10 @@ body {
   box-sizing: border-box;
 }
 .body-background {
-background-position: center;
-background-size: cover;
-background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+  background-position: center;
   &::before {
     content: '';
     position: fixed;
@@ -32,11 +33,15 @@ background-repeat: no-repeat;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
-.general-buttons, .search, main {
+.general-buttons, .search {
   display: flex;
+}
+main {
+  display: flex !important;
+  justify-content: space-between;
 }
 .general {
   width: 45px;
@@ -54,11 +59,10 @@ background-repeat: no-repeat;
   font-size: 16px;
   font-weight: 700;
   color: #fff;
-  outline: none;
+  outline: none !important;
   text-transform: uppercase;
   -webkit-transition: all .2s;
   transition: all .2s;
-  cursor: pointer;
   text-align: center;
 }
 .general:hover { 
@@ -66,11 +70,11 @@ background-repeat: no-repeat;
 }
 
 .change-image {
-  background: rgba(180,184,187,.5) url(../img/Refresh.png) no-repeat;
+  background: rgba(180,184,187,.5) url("/images/Refresh.png") no-repeat;
   background-size: cover;
   padding: 0;
   &:hover {
-    background: rgba(48, 150, 228, 0.7) url(../img/Refresh.png) no-repeat;
+    background: rgba(48, 150, 228, 0.7) url("/images/Refresh.png") no-repeat;
     background-size: cover;
   }
 }
@@ -97,7 +101,7 @@ background-repeat: no-repeat;
 }
 .search-input {
   width: 250px;
-  height: 33px;
+  height: 45px;
   border-radius: .5rem 0 0 .5rem;
   padding: 5px 10px;
   background: rgba(76,82,85,.7);
@@ -135,7 +139,7 @@ background-repeat: no-repeat;
   font-size: 20px;
 }
 .weather {
-  width: 60%;
+  width: 55%;
 }
 .temperature-now {
   font-size: 200px;
@@ -153,9 +157,10 @@ background-repeat: no-repeat;
 }
 .another-info {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 22px;
   text-transform: uppercase;
   text-align: left;
+  margin-top: -10px;
 }
 .another-info p {
   margin: 5px;
@@ -169,7 +174,7 @@ background-repeat: no-repeat;
 }
 
 .week-day, .week-temp-day {
-  font-size: 30px;
+  font-size: 28px;
   margin: 0;
   font-weight: 600;
 }
@@ -191,4 +196,29 @@ background-repeat: no-repeat;
 .week-icon-temp {
   width: 100%;
   height: 120px;
+}
+
+.map {
+  width: 100%;
+  height: 300px;
+  background-color: rgba(48, 150, 228, 0.7);
+}
+
+.geolocation {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon-cloud {
+  width: 100%;
+  height: 180px;
+}
+
+.coordinates {
+  font-size: 22px;
+  text-align: right;
+  p {
+    margin: 10px;
+  }
 }
