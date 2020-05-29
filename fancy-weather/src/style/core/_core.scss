@@ -13,7 +13,7 @@ body {
 .body-background {
   background-size: cover;
   background-repeat: no-repeat;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   background-position: center;
   &::before {
     content: '';
@@ -157,7 +157,7 @@ main {
 }
 .another-info {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 21px;
   text-transform: uppercase;
   text-align: left;
   margin-top: -10px;
@@ -177,6 +177,7 @@ main {
   font-size: 28px;
   margin: 0;
   font-weight: 600;
+  text-transform: lowercase;
 }
 
 .week-temp-days {
@@ -219,6 +220,13 @@ main {
   font-size: 22px;
   text-align: right;
   p {
-    margin: 10px;
+    margin: 5px 10px 0;
   }
+}
+
+.error-message {
+  min-height: 40px;
+  font-size: 20px;
+  color: red;
+  font-weight: 600;
 }
