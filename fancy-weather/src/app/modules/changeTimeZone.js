@@ -1,7 +1,7 @@
 function changeTimeZone(zoneName, lang) {
   const options = {
     timeZone: zoneName,
-    weekday: 'long',
+    weekday: 'short',
     day: 'numeric',
     month: 'long',
     hour: 'numeric',
