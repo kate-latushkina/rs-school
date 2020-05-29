@@ -62,11 +62,11 @@ const fahrenheit = document.querySelector('.fahrenheit')
 fahrenheit.addEventListener('click', () => {
   celsius.classList.add('off-button')
   fahrenheit.classList.remove('off-button')
-  // getWeatherDay(visit)
+  getWeatherDay(visit, lang)
 })
 
 celsius.addEventListener('click', () => {
   fahrenheit.classList.add('off-button')
   celsius.classList.remove('off-button')
-  // getWeatherDay(visit)
+  getWeatherDay(visit, lang)
 })

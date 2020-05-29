@@ -1,19 +1,36 @@
 import weatherIcon from './weatherIcon'
 import dictionary from './language'
 import deleteCards from './deleteCard'
+import weatherTranslate from './weatherTranslate'
+import weekTranslate from './weekDaysTranslate'
 
 function createWeather(data, arr, lang) {
   const degKelvin = 273.15
+  const fahrenheit = document.querySelector('.fahrenheit ')
+  const errorMessage = document.querySelector('.error-message')
   try {
+    errorMessage.innerHTML = ''
     const newDataList = data.list.filter((element) => {
       const timeADay = new Date(element.dt_txt)
       return timeADay.getHours() === 15
     })
+    const nullCelsius = 32
+    const oneFahrenheit = 1.8
     const nameIconNow = data.list[0].weather[0].icon
-    document.querySelector('.temperature-now').innerHTML = `${(data.list[0].main.temp - degKelvin).toFixed(1)}`
+    if (!fahrenheit.classList.contains('off-button')) {
+      // ºF = 1.8 x (K - 273) + 32.
+      document.querySelector('.temperature-now').innerHTML = `${(oneFahrenheit * (data.list[0].main.temp - degKelvin) + nullCelsius).toFixed(1)}`
+      document.querySelector('.feels-like').innerHTML = `${dictionary.feelsLike[lang]}: ${(oneFahrenheit * (data.list[0].main.feels_like - degKelvin) + nullCelsius).toFixed(1)}`
+    }
+    if (fahrenheit.classList.contains('off-button')) {
+      document.querySelector('.temperature-now').innerHTML = `${(data.list[0].main.temp - degKelvin).toFixed(1)}`
+      document.querySelector('.feels-like').innerHTML = `${dictionary.feelsLike[lang]}: ${(data.list[0].main.feels_like - degKelvin).toFixed(1)}${'&deg'}`
+    }
     document.querySelector('.icon-cloud').setAttribute('src', weatherIcon[nameIconNow])
     document.querySelector('.cloudy').innerHTML = data.list[0].weather[0].description
-    document.querySelector('.feels-like').innerHTML = `${dictionary.feelsLike[lang]}: ${(data.list[0].main.feels_like - degKelvin).toFixed(1)}${'&deg'}`
+    if (lang === 'be') {
+      document.querySelector('.cloudy').innerHTML = weatherTranslate[lang][data.list[0].weather[0].id]
+    }
     document.querySelector('.wind').innerHTML = `${dictionary.wind[lang]}: ${Math.ceil(data.list[0].wind.speed)} ${dictionary.speed[lang]}`
     document.querySelector('.humidity').innerHTML = `${dictionary.humidity[lang]}: ${data.list[0].main.humidity}%`
     deleteCards()
@@ -36,12 +53,20 @@ function createWeather(data, arr, lang) {
 
       const currentDate = new Date(newDataList[i].dt_txt).toLocaleString(lang, { weekday: 'long' })
       weekTitleDay.innerHTML = currentDate
-
-      weekDayTemp.innerHTML = `${(newDataList[i].main.temp - degKelvin).toFixed(1)}${'&deg'}`
+      weekTitleDay.setAttribute('data-dayTranslate', new Date(newDataList[i].dt_txt).toLocaleString('en', { weekday: 'long' }))
+      if (lang === 'be') {
+        weekTitleDay.innerHTML = weekTranslate.weekBe.full[weekTitleDay.dataset.daytranslate]
+      }
+      if (!fahrenheit.classList.contains('off-button')) {
+        weekDayTemp.innerHTML = `${(oneFahrenheit * (newDataList[i].main.temp - degKelvin) + nullCelsius).toFixed(1)}`
+      }
+      if (fahrenheit.classList.contains('off-button')) {
+        weekDayTemp.innerHTML = `${(newDataList[i].main.temp - degKelvin).toFixed(1)}${'&deg'}`
+      }
       arr.push(daysTemp)
     }
   } catch (error) {
-    document.querySelector('.location').innerHTML = dictionary.searchError[lang]
+    errorMessage.innerHTML = dictionary.searchError[lang]
   }
 }
 
