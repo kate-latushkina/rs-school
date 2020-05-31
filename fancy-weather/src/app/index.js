@@ -1,7 +1,6 @@
 import getBackgroundPictures from './modules/pictures'
 import getWeatherDay from './modules/weather'
 import '../style/app.scss'
-// import changeLanguage from './modules/changeLanguage'
 
 const languages = {
   english: 'en',
@@ -12,26 +11,45 @@ const languages = {
 if (localStorage.getItem('lang') === null) {
   localStorage.setItem('lang', languages.english)
 }
+const degrees = {
+  fahrenheit: 'fahrenheit',
+  celsius: 'celsius',
+}
+if (localStorage.getItem('degrees') === null) {
+  localStorage.setItem('degrees', degrees.celsius)
+}
 
 let lang = localStorage.getItem('lang')
 let visit = 1
 const optionsLang = document.querySelector('select')
 optionsLang.addEventListener('change', () => {
   lang = optionsLang.value
-  // changeLanguage(lang)
+  localStorage.setItem('lang', lang)
   getWeatherDay(visit, lang)
 })
 
 window.onload = () => {
-  getBackgroundPictures()
+  document.querySelectorAll('option').forEach((e) => {
+    if (e.value === lang) {
+      e.setAttribute('selected', true)
+    }
+  })
+  document.querySelectorAll('.change-temperature').forEach((temp) => {
+    if (temp.classList.contains(localStorage.getItem('degrees'))) {
+      temp.classList.remove('off-button')
+    } else {
+      temp.classList.add('off-button')
+    }
+  })
+  getBackgroundPictures(visit)
   getWeatherDay(visit, lang)
-  // console.log(lang)
 }
 
 const daysTemperature = document.querySelectorAll('.days-temperature')
 const changeBackImage = document.querySelector('.change-image')
 changeBackImage.addEventListener('click', () => {
-  getBackgroundPictures()
+  visit += 1
+  getBackgroundPictures(visit)
 })
 const searchButton = document.querySelector('.button-search')
 searchButton.addEventListener('click', () => {
@@ -62,11 +80,13 @@ const fahrenheit = document.querySelector('.fahrenheit')
 fahrenheit.addEventListener('click', () => {
   celsius.classList.add('off-button')
   fahrenheit.classList.remove('off-button')
+  localStorage.setItem('degrees', 'fahrenheit')
   getWeatherDay(visit, lang)
 })
 
 celsius.addEventListener('click', () => {
   fahrenheit.classList.add('off-button')
   celsius.classList.remove('off-button')
+  localStorage.setItem('degrees', 'celsius')
   getWeatherDay(visit, lang)
 })
