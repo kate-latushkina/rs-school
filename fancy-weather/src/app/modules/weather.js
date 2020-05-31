@@ -42,10 +42,9 @@ function getWeatherDay(visit, lang) {
             .then((resp) => resp.json())
             .then((geoloc) => {
               const geoPosition = []
-              // eslint-disable-next-line guard-for-in
-              for (const key in geoloc.results[0].geometry) {
+              Object.keys(geoloc.results[0].geometry).forEach((key) => {
                 geoPosition.push(geoloc.results[0].geometry[key])
-              }
+              })
               const position = geoPosition.join(',')
               getGeolocation(position, lang)
               changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
