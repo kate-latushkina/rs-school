@@ -41,18 +41,6 @@ function getWeatherDay(visit, lang) {
           fetch(`https://api.opencagedata.com/geocode/v1/json?q=${whatCity}&timezone=0&key=${opencagedataKey}`)
             .then((resp) => resp.json())
             .then((geoloc) => {
-              changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
-
-              if (geoloc.results[0].components.city === undefined) {
-                document.querySelector('.location').innerHTML = `${geoloc.results[0].components.county}, ${geoloc.results[0].components.country}`
-              }
-              if (geoloc.results[0].components.county === undefined) {
-                document.querySelector('.location').innerHTML = `${geoloc.results[0].components.state}, ${geoloc.results[0].components.country}`
-              }
-              if (geoloc.results[0].components.city !== undefined) {
-                document.querySelector('.location').innerHTML = `${geoloc.results[0].components.city}, ${geoloc.results[0].components.country}`
-              }
-              // || town || village || state || formatted
               const geoPosition = []
               // eslint-disable-next-line guard-for-in
               for (const key in geoloc.results[0].geometry) {
@@ -60,6 +48,7 @@ function getWeatherDay(visit, lang) {
               }
               const position = geoPosition.join(',')
               getGeolocation(position, lang)
+              changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
             })
         })
       searchInput.setAttribute('data-city', whatCity)
