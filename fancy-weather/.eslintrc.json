@@ -22,8 +22,7 @@
         "operator-linebreak": [2, "before"],
         "no-restricted-syntax": [
             "error",
-            "WithStatement",
-            "BinaryExpression[operator='in']"
+            "WithStatement"
         ],
         "no-unused-expressions": [2, { "allowTernary": true }],
         "object-curly-newline": ["error", { "multiline": true }]

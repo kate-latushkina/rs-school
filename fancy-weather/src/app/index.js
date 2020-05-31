@@ -51,6 +51,7 @@ changeBackImage.addEventListener('click', () => {
   visit += 1
   getBackgroundPictures(visit)
 })
+const searchInput = document.querySelector('.search-input')
 const searchButton = document.querySelector('.button-search')
 searchButton.addEventListener('click', () => {
   daysTemperature.forEach((elem) => {
@@ -61,7 +62,7 @@ searchButton.addEventListener('click', () => {
   searchInput.value = ''
 })
 
-const searchInput = document.querySelector('.search-input')
+
 searchInput.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     daysTemperature.forEach((elem) => {
