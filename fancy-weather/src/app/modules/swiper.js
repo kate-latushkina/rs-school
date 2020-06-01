@@ -13,27 +13,10 @@ const mySwiper = new Swiper('.swiper-container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-  // breakpoints: {
-  //   320: {
-  //     slidesPerView: 1,
-  //     spaceBetween: 20,
-  //   },
-  //   430: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 20,
-  //   },
-  //   680: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 20,
-  //   },
-  //   980: {
-  //     slidesPerView: 4,
-  //     spaceBetween: 30,
-  //   },
-  //   1050: {
-  //     slidesPerView: 4,
-  //     spaceBetween: 20,
-  //   },
-  // },
+  breakpoints: {
+    320: { slidesPerView: 1 },
+    540: { slidesPerView: 2 },
+    768: { slidesPerView: 3 },
+  },
 })
 export default mySwiper

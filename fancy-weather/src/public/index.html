@@ -26,6 +26,7 @@
                 <button class="change-temperature fahrenheit general off-button">&deg;F</button>
                 <button class="change-temperature celsius general">&deg;C</button>
             </div>
+            <div class="error-message"></div>
             <div class="search">
                 <input type="text" class="search-input" placeholder="">
                 <button class="button-search"></button>
@@ -34,9 +35,9 @@
         <main>
             <div class="weather">
                 <p class="location"></p>
+                <p class="time"></p>
                 <div class="weather-now">
                     <div class="left-side-weather">
-                        <p class="time"></p>
                         <p class="temperature-now"></p>
                     </div>
                     <div class="right-side-weather">
@@ -51,7 +52,6 @@
                 </div>
             </div>
             <div class="geolocation">
-                <div class="error-message"></div>
                 <div id="map"></div>
                 <div class="coordinates">
                     <p class="lat"></p>
