@@ -43,7 +43,7 @@ function getBackgroundPictures(visit) {
   } else {
     filter = 'forest'
   }
-  fetch(`https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=city,${filter}&client_id=${picturesKey}`)
+  fetch(`https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=city,${filter},weather,nature&client_id=${picturesKey}`)
     .then((resp) => resp.json())
     .then((data) => {
       document.querySelector('body').style.backgroundImage = `url(${data.urls.regular})`
