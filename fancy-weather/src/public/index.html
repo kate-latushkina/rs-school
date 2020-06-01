@@ -8,6 +8,8 @@
     <meta name="author" lang="en" content="Ekaterina Latushkina" />
     <title>Fancy Weather</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 </head>
 
@@ -50,13 +52,12 @@
             </div>
             <div class="geolocation">
                 <div class="error-message"></div>
-                <div class="map"></div>
+                <div id="map"></div>
                 <div class="coordinates">
                     <p class="lat"></p>
                     <p class="lon"></p>
                 </div>
             </div>
-            
         </main>
         <div class="swiper">
             <div class="swiper-button-prev"></div>
@@ -64,7 +65,7 @@
                 <div class="swiper-wrapper"></div>
             </div>
             <div class="swiper-button-next"></div>
-        </div>        
+        </div>
     </div>
 </body>
 </html>

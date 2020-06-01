@@ -3,6 +3,7 @@ import mySwiper from './swiper'
 import getGeolocation from './geolocation'
 import changeTimeZone from './changeTimeZone'
 import dictionary from './language'
+import createMaps from './createMap'
 
 function getWeatherDay(visit, lang) {
   const slidesArray = []
@@ -28,6 +29,7 @@ function getWeatherDay(visit, lang) {
             })
           getGeolocation(data.loc, lang)
           changeTimeZone(data.timezone, lang)
+          createMaps(data.loc)
         })
     } else {
       if (whatCity === '') {
@@ -48,6 +50,7 @@ function getWeatherDay(visit, lang) {
               const position = geoPosition.join(',')
               getGeolocation(position, lang)
               changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
+              createMaps(position)
             })
         })
       searchInput.setAttribute('data-city', whatCity)
