@@ -1,3 +1,5 @@
+import changeBelTime from './changeBelTime'
+
 function changeTimeZone(zoneName, lang) {
   clearInterval(+localStorage.getItem('interval'))
   const time = document.querySelector('.time')
@@ -11,9 +13,8 @@ function changeTimeZone(zoneName, lang) {
     second: 'numeric',
     hour12: false,
   }
-
   const interval = setInterval(() => {
-    time.innerHTML = new Date().toLocaleString(lang, options)
+    time.innerHTML = changeBelTime(lang, options)
   }, 1000)
   localStorage.setItem('interval', interval)
 }

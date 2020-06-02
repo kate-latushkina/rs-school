@@ -53,9 +53,8 @@ function createWeather(data, arr, lang) {
 
       const currentDate = new Date(newDataList[i].dt_txt).toLocaleString(lang, { weekday: 'long' })
       weekTitleDay.innerHTML = currentDate
-      weekTitleDay.setAttribute('data-dayTranslate', new Date(newDataList[i].dt_txt).toLocaleString('en', { weekday: 'long' }))
       if (lang === 'be') {
-        weekTitleDay.innerHTML = weekTranslate.weekBe.full[weekTitleDay.dataset.daytranslate]
+        weekTitleDay.innerHTML = weekTranslate.weekBe.full[weekTitleDay.innerText]
       }
       if (!fahrenheit.classList.contains('off-button')) {
         weekDayTemp.innerHTML = `${(oneFahrenheit * (newDataList[i].main.temp - degKelvin) + nullCelsius).toFixed(1)}`
