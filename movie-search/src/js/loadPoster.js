@@ -1,7 +1,8 @@
 async function loadPoster(cardPoster, link) {
   const image = cardPoster
   try {
-    if (link === 'N/A') {
+    const notPoster = 'N/A'
+    if (link === notPoster) {
       image.setAttribute('src', './img/no-poster.jpg')
     } else {
       await fetch(link)

@@ -7,7 +7,7 @@
     "> 0.25%, not dead"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --history-api-fallback --inline --open",
+    "start": "webpack-dev-server --history-api-fallback --inline --open",
     "build": "npm run clear -s && webpack --progress",
     "lint": "eslint .//*.js",
     "fix": "eslint .//*.js --fix",
@@ -51,9 +51,8 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "core-js": "^3.4.7",
+    "fast-async": "^6.3.8",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.1",
-    "regenerator-runtime": "^0.13.3",
     "swiper": "^5.3.8"
   }
 }

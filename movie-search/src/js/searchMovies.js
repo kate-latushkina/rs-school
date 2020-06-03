@@ -3,14 +3,16 @@ import deleteCards from './deleteCards'
 import mySwiper from './swiper'
 
 async function searchMovies(pageNumber = 1) {
+  const omdbKey = '624b2fc6'
   document.querySelector('.here').classList.add('spinner')
   document.querySelector('.here').classList.add('spinner-primary')
   document.querySelector('.info').innerHTML = ''
   const slideArray = []
   const input = document.querySelector('.search-input')
   let search = input.value
+  const previousSlide = 5
   mySwiper.on('slideChange', () => {
-    if (mySwiper.activeIndex === document.querySelector('.swiper-wrapper').childNodes.length - 5) {
+    if (mySwiper.activeIndex === document.querySelector('.swiper-wrapper').childNodes.length - previousSlide) {
       pageNumber += 1
       searchMovies(pageNumber)
     }
@@ -25,10 +27,11 @@ async function searchMovies(pageNumber = 1) {
         search = translateText
       })
   }
-  await fetch(`https://www.omdbapi.com/?s=${search}&page=${pageNumber}&apikey=624b2fc6`)
+  await fetch(`https://www.omdbapi.com/?s=${search}&page=${pageNumber}&apikey=${omdbKey}`)
     .then((resp) => resp.json())
     .then((data) => {
-      if (data.Error === 'Request limit reached!') {
+      const limitError = 'Request limit reached!'
+      if (data.Error === limitError) {
         document.querySelector('.info').innerHTML = `Sorry, key not working. See you tomorrow`
       }
       if (data.Error) {
@@ -42,7 +45,7 @@ async function searchMovies(pageNumber = 1) {
           arr.push(film.Title)
         })
         arr.map((film) => {
-          fetch(`https://www.omdbapi.com/?t=${film}&page=${pageNumber}&apikey=624b2fc6`)
+          fetch(`https://www.omdbapi.com/?t=${film}&page=${pageNumber}&apikey=${omdbKey}`)
             .then((resp) => resp.json())
             .then((dataFilm) => {
               createCards(dataFilm, slideArray)
