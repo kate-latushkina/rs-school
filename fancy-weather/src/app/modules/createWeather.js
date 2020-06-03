@@ -8,6 +8,8 @@ function createWeather(data, arr, lang) {
   const degKelvin = 273.15
   const fahrenheit = document.querySelector('.fahrenheit ')
   const errorMessage = document.querySelector('.error-message')
+  const footerString = document.querySelector('marquee')
+  const space = '-----'
   try {
     errorMessage.innerHTML = ''
     const newDataList = data.list.filter((element) => {
@@ -17,6 +19,17 @@ function createWeather(data, arr, lang) {
     const nullCelsius = 32
     const oneFahrenheit = 1.8
     const nameIconNow = data.list[0].weather[0].icon
+
+    footerString.innerHTML = `${dictionary.temp[lang]}: 
+    ${(data.list[0].main.temp - degKelvin).toFixed(1)}${'&deg'} ${space}
+    ${dictionary.feelsLike[lang]}: ${(data.list[0].main.feels_like - degKelvin).toFixed(1)}${'&deg'} Celsius 
+    (${(oneFahrenheit * (data.list[0].main.temp - degKelvin) + nullCelsius).toFixed(1)} Fahrenheit   
+    ${dictionary.feelsLike[lang]}: ${(oneFahrenheit * (data.list[0].main.feels_like - degKelvin) + nullCelsius).toFixed(1)} Fahrenheit) ${space} 
+    ${data.list[0].weather[0].description} ${space} 
+    ${dictionary.wind[lang]}: ${Math.ceil(data.list[0].wind.speed)} ${dictionary.speed[lang]} ${space} 
+    ${dictionary.humidity[lang]}: ${data.list[0].main.humidity}%
+    `
+
     if (!fahrenheit.classList.contains('off-button')) {
       // ºF = 1.8 x (K - 273) + 32.
       document.querySelector('.temperature-now').innerHTML = `${(oneFahrenheit * (data.list[0].main.temp - degKelvin) + nullCelsius).toFixed(1)}`
@@ -30,6 +43,16 @@ function createWeather(data, arr, lang) {
     document.querySelector('.cloudy').innerHTML = data.list[0].weather[0].description
     if (lang === 'be') {
       document.querySelector('.cloudy').innerHTML = weatherTranslate[lang][data.list[0].weather[0].id]
+
+      footerString.innerHTML = `${dictionary.temp[lang]}: 
+      ${(data.list[0].main.temp - degKelvin).toFixed(1)}${'&deg'} ${space}
+      ${dictionary.feelsLike[lang]}: ${(data.list[0].main.feels_like - degKelvin).toFixed(1)}${'&deg'} Celsius 
+      (${(oneFahrenheit * (data.list[0].main.temp - degKelvin) + nullCelsius).toFixed(1)} Fahrenheit   
+      ${dictionary.feelsLike[lang]}: ${(oneFahrenheit * (data.list[0].main.feels_like - degKelvin) + nullCelsius).toFixed(1)} Fahrenheit) ${space} 
+      ${weatherTranslate[lang][data.list[0].weather[0].id]} ${space} 
+      ${dictionary.wind[lang]}: ${Math.ceil(data.list[0].wind.speed)} ${dictionary.speed[lang]} ${space} 
+      ${dictionary.humidity[lang]}: ${data.list[0].main.humidity}%
+      `
     }
     document.querySelector('.wind').innerHTML = `${dictionary.wind[lang]}: ${Math.ceil(data.list[0].wind.speed)} ${dictionary.speed[lang]}`
     document.querySelector('.humidity').innerHTML = `${dictionary.humidity[lang]}: ${data.list[0].main.humidity}%`

@@ -44,6 +44,11 @@ const dictionary = {
     ru: 'м/с',
     be: 'м/с',
   },
+  temp: {
+    en: 'Temperature now',
+    ru: 'Температура сейчас',
+    be: 'Тэмпература зараз',
+  },
 }
 
 export default dictionary
