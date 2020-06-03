@@ -3,6 +3,7 @@ import mySwiper from './swiper'
 import getGeolocation from './geolocation'
 import changeTimeZone from './changeTimeZone'
 import dictionary from './language'
+import getBackgroundPictures from './pictures'
 import createMaps from './createMap'
 
 function getWeatherDay(visit, lang) {
@@ -30,6 +31,7 @@ function getWeatherDay(visit, lang) {
           getGeolocation(data.loc, lang)
           changeTimeZone(data.timezone, lang)
           createMaps(data.loc)
+          getBackgroundPictures(visit, data.timezone)
         })
     } else {
       if (whatCity === '') {
@@ -51,6 +53,7 @@ function getWeatherDay(visit, lang) {
               getGeolocation(position, lang)
               changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
               createMaps(position)
+              getBackgroundPictures(1, geoloc.results[0].annotations.timezone.name)
             })
         })
       searchInput.setAttribute('data-city', whatCity)

@@ -41,7 +41,6 @@ window.onload = () => {
       temp.classList.add('off-button')
     }
   })
-  getBackgroundPictures(visit)
   getWeatherDay(visit, lang)
 }
 
@@ -59,7 +58,6 @@ searchButton.addEventListener('click', () => {
   })
   visit += 1
   getWeatherDay(visit, lang)
-  getBackgroundPictures(1)
   searchInput.value = ''
 })
 
@@ -71,7 +69,6 @@ searchInput.addEventListener('keyup', (e) => {
     })
     visit += 1
     getWeatherDay(visit, lang)
-    getBackgroundPictures(1)
     searchInput.value = ''
   }
 })
