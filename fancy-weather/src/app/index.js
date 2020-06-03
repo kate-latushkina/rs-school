@@ -41,7 +41,7 @@ window.onload = () => {
       temp.classList.add('off-button')
     }
   })
-  getWeatherDay(visit, lang)
+  getWeatherDay(visit, lang, true)
 }
 
 const daysTemperature = document.querySelectorAll('.days-temperature')
@@ -57,7 +57,7 @@ searchButton.addEventListener('click', () => {
     elem.remove(elem)
   })
   visit += 1
-  getWeatherDay(visit, lang)
+  getWeatherDay(visit, lang, true)
   searchInput.value = ''
 })
 
@@ -68,7 +68,7 @@ searchInput.addEventListener('keyup', (e) => {
       elem.remove(elem)
     })
     visit += 1
-    getWeatherDay(visit, lang)
+    getWeatherDay(visit, lang, true)
     searchInput.value = ''
   }
 })

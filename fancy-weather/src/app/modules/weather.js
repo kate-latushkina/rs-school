@@ -6,7 +6,7 @@ import dictionary from './language'
 import getBackgroundPictures from './pictures'
 import createMaps from './createMap'
 
-function getWeatherDay(visit, lang) {
+function getWeatherDay(visit, lang, click) {
   const slidesArray = []
   const opencagedataKey = '1a09b58245c142c590aa7dc82af15c4d'
   const weatherKey = '6b190133b1b7df010e391874c7540cd3'
@@ -31,7 +31,9 @@ function getWeatherDay(visit, lang) {
           getGeolocation(data.loc, lang)
           changeTimeZone(data.timezone, lang)
           createMaps(data.loc)
-          getBackgroundPictures(visit, data.timezone)
+          if (click) {
+            getBackgroundPictures(visit, data.timezone)
+          }
         })
     } else {
       if (whatCity === '') {
@@ -53,7 +55,9 @@ function getWeatherDay(visit, lang) {
               getGeolocation(position, lang)
               changeTimeZone(geoloc.results[0].annotations.timezone.name, lang)
               createMaps(position)
-              getBackgroundPictures(1, geoloc.results[0].annotations.timezone.name)
+              if (click) {
+                getBackgroundPictures(1, geoloc.results[0].annotations.timezone.name)
+              }
             })
         })
       searchInput.setAttribute('data-city', whatCity)
