@@ -5,7 +5,10 @@ import weatherTranslate from './weatherTranslate'
 import weekTranslate from './weekDaysTranslate'
 
 function createWeather(data, arr, lang) {
+  const belLang = 'be'
+  const daysWeather = 5
   const degKelvin = 273.15
+  const averageTemp = 15
   const fahrenheit = document.querySelector('.fahrenheit ')
   const errorMessage = document.querySelector('.error-message')
   const footerString = document.querySelector('marquee')
@@ -14,7 +17,7 @@ function createWeather(data, arr, lang) {
     errorMessage.innerHTML = ''
     const newDataList = data.list.filter((element) => {
       const timeADay = new Date(element.dt_txt)
-      return timeADay.getHours() === 15
+      return timeADay.getHours() === averageTemp
     })
     const nullCelsius = 32
     const oneFahrenheit = 1.8
@@ -41,7 +44,7 @@ function createWeather(data, arr, lang) {
     }
     document.querySelector('.icon-cloud').setAttribute('src', weatherIcon[nameIconNow])
     document.querySelector('.cloudy').innerHTML = data.list[0].weather[0].description
-    if (lang === 'be') {
+    if (lang === belLang) {
       document.querySelector('.cloudy').innerHTML = weatherTranslate[lang][data.list[0].weather[0].id]
 
       footerString.innerHTML = `${dictionary.temp[lang]}: 
@@ -57,7 +60,7 @@ function createWeather(data, arr, lang) {
     document.querySelector('.wind').innerHTML = `${dictionary.wind[lang]}: ${Math.ceil(data.list[0].wind.speed)} ${dictionary.speed[lang]}`
     document.querySelector('.humidity').innerHTML = `${dictionary.humidity[lang]}: ${data.list[0].main.humidity}%`
     deleteCards()
-    for (let i = 0; i < 5; i += 1) {
+    for (let i = 0; i < daysWeather; i += 1) {
       const daysTemp = document.createElement('div')
       document.querySelector('.swiper-wrapper').appendChild(daysTemp)
       daysTemp.classList.add('days-temperature')
@@ -76,7 +79,7 @@ function createWeather(data, arr, lang) {
 
       const currentDate = new Date(newDataList[i].dt_txt).toLocaleString(lang, { weekday: 'long' })
       weekTitleDay.innerHTML = currentDate
-      if (lang === 'be') {
+      if (lang === belLang) {
         weekTitleDay.innerHTML = weekTranslate.weekBe.full[weekTitleDay.innerText]
       }
       if (!fahrenheit.classList.contains('off-button')) {

@@ -7,17 +7,18 @@ import getBackgroundPictures from './pictures'
 import createMaps from './createMap'
 
 function getWeatherDay(visit, lang, click) {
+  const firstVisit = 1
   const slidesArray = []
   const opencagedataKey = '1a09b58245c142c590aa7dc82af15c4d'
   const weatherKey = '6b190133b1b7df010e391874c7540cd3'
   const searchInput = document.querySelector('.search-input')
-  let whatCity = searchInput.value
+  const whatCity = searchInput.value
   const buttonSearch = document.querySelector('.button-search')
   buttonSearch.innerHTML = dictionary.search[lang]
   searchInput.placeholder = dictionary.searchPlaceholder[lang]
   const tokenKey = 'ac3dcc6e0ce397'
   try {
-    if (visit === 1) {
+    if (visit === firstVisit) {
       fetch(`https://ipinfo.io?&token=${tokenKey}`)
         .then((resp) => resp.json())
         .then((data) => {
@@ -36,9 +37,6 @@ function getWeatherDay(visit, lang, click) {
           }
         })
     } else {
-      if (whatCity === '') {
-        whatCity = searchInput.dataset.city
-      }
       fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${whatCity}&appid=${weatherKey}&lang=${lang}`)
         .then((resp) => resp.json())
         .then((dataCity) => {
