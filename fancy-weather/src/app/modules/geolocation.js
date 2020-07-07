@@ -8,13 +8,13 @@ function getGeolocation(data, lang) {
     .then((geolocation) => {
       let currentLocation
       currentLocation = geolocation.results[0].components.city
-      if (geolocation.results[0].components.city === undefined) {
+      if (!geolocation.results[0].components.city) {
         currentLocation = geolocation.results[0].components.town
-        if (geolocation.results[0].components.town === undefined) {
+        if (!geolocation.results[0].components.town) {
           currentLocation = geolocation.results[0].components.village
-          if (geolocation.results[0].components.village === undefined) {
+          if (!geolocation.results[0].components.village) {
             currentLocation = geolocation.results[0].components.state
-            if (geolocation.results[0].components.state === undefined) {
+            if (!geolocation.results[0].components.state) {
               currentLocation = geolocation.results[0].components.formatted
             }
           }

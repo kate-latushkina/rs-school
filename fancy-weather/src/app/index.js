@@ -8,14 +8,14 @@ const languages = {
   belarus: 'be',
 }
 
-if (localStorage.getItem('lang') === null) {
+if (!localStorage.getItem('lang')) {
   localStorage.setItem('lang', languages.english)
 }
 const degrees = {
   fahrenheit: 'fahrenheit',
   celsius: 'celsius',
 }
-if (localStorage.getItem('degrees') === null) {
+if (!localStorage.getItem('degrees')) {
   localStorage.setItem('degrees', degrees.celsius)
 }
 
