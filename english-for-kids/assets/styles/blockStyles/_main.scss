@@ -1,0 +1,148 @@
+.mainCards {
+  width: 270px;
+  height: 240px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  color: #212529;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: .3s;
+  position: relative;
+  &:hover {
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,.3);
+  }
+}
+
+.cardsBG-train {
+  background: $cardsTrainBG;
+}
+.cardsBG-play {
+  background: $cardsPlayBG;
+}
+main {
+  flex-wrap: wrap;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1250px;
+}
+#main-title {
+  margin-right: 25px;
+  text-align: end;
+  margin-top: 20px;
+  font-size: 30px;
+  color: rgb(241, 241, 4);
+  width: 52%;
+}
+.card-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+.main-card-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  object-fit: cover;
+  margin: 30px auto;
+}
+.card-pic {
+  height: inherit;
+  min-height: 200px;
+  object-fit: cover;
+}
+
+.reverse {
+  position: absolute;
+  background-image: url(../images/reverse.jpg);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 205px;
+  right: 15px;
+  display: block;
+}
+.none {
+  display: none;
+}
+
+.flip-card {
+  transform: rotateY(180deg);
+  transition: ease 0.8s;
+}
+
+.playCard {
+  height: 200px;
+}
+
+.divGame {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+.startGame {
+  width: 25%;
+  min-width: 170px;
+  height: 50px;
+  background: $playBG;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: text-bottom;
+  color: white;
+  border: none;
+  outline: none;
+  margin: 20px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.repeatButtonGame {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  background: $playBG;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.playImage {
+  filter: blur(3px);
+}
+
+.winImg {
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(../images/success.jpg);
+}
+
+.starPlace img {
+  max-width: 40px;
+}
+
+.starPlace {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+  overflow: hidden;
+  width: 32%;
+}
