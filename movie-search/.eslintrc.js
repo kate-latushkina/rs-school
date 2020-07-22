@@ -1,0 +1,32 @@
+module.exports = {
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+        "extends": [
+            "airbnb-base",
+            "prettier"
+        ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "linebreak-style": ["error", "windows"],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "semi": ["error", "never"],
+        "no-use-before-define": ["error", { "functions": false, "variables": false }],
+        "operator-linebreak": [2, "before"],
+        "no-restricted-syntax": [
+            "error",
+            "WithStatement"
+        ],
+        "no-else-return": 0,
+        "no-unused-expressions": [2, { "allowTernary": true }],
+        "object-curly-newline": ["error", { "multiline": true }]
+    }
+};

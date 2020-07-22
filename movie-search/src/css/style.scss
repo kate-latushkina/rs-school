@@ -1,0 +1,455 @@
+@import './swiper.min.css';
+html {
+  font-size: 10px;
+  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // &:focus {
+  //   outline: none;
+  // }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  background: transparent;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  border: none;
+  min-height: 1px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+footer {
+  background-color: black;
+  opacity: 0.5;
+  position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 55px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.school-text,
+.account-text {
+  color: white;
+  font-size: 20px;
+  &:hover {
+    color: purple;
+  }
+}
+
+header {
+  width: 100%;
+  background: black;
+  opacity: 0.5;
+
+}
+.header-title {
+  color: whitesmoke;
+  font-size: 35px;
+  text-align: center;
+  padding: 15px 0;
+}.background {
+  background-image: url(../img/avengers4_80.jpg);
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  opacity: 0.4;
+}
+main {
+  padding-bottom: 90px;
+  position: relative;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 0 0;
+  width: 80%;
+  color: rgb(33, 37, 41);
+  height: 45px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.search-input {
+  width: calc(100% - 90px);
+  max-width: 1350px;
+  border: 1px solid rgb(206, 212, 218);
+  color: rgb(123, 138, 139);
+  cursor: text;
+  display: block;
+  font-size: 22px;
+  font-weight: 400;
+  height: 45px;
+  padding: 8px 100px 8px 65px;
+}
+.search-img-input,
+.keyboard-img-input,
+.clear-img-input {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 2px;
+  opacity: 0.8;
+}
+.search-img-input {
+  left: 12px;
+  background-image: url(../img/search.png);
+}
+.keyboard-img-input {
+  background-image: url(../img/tia.png);
+  right: 128px;
+  width: 45px;
+  cursor: pointer;
+}
+.clear-img-input {
+  background-image: url(../img/clear.svg);
+  right: 190px;
+  cursor: pointer;
+  width: 25px;
+}
+.search-button {
+  background-color: rgb(214, 44, 26);
+  border: none;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  height: 45px;
+  padding: 8px 15px;
+  width: 90px;
+  font-size: 18px;
+  margin-left: 30px;
+  outline: none;
+  &:hover {
+    background-color: purple;
+  }
+}
+.info {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
+.swiper-slide, .swiper-slide-active {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 270px;
+  transition: ease 0.8s;
+}
+.none {
+  display: none;
+}
+.plot {
+  font-size: 20px;
+  width: 100%;
+  height: 400px;
+  padding: 15px;
+  transform: scaleX(-1);
+  margin-top: -400px;
+  text-align: justify;
+}
+.transform {
+  transform: scaleX(-1);
+}
+.film-title {
+  padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  width: 100%;
+  height: 60px;
+  color: black;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+.poster {
+  padding: 0 5px;
+  height: 320px;
+  width: 100%;
+}
+.film-year {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  padding-top: 10px;
+}
+.film-imbd {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 21px;
+  position: relative;
+}
+
+.film-imbd::before {
+  content: "";
+  position: absolute;
+  background-image: url(../img/star-win.svg);
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 60px;
+  background-size: contain;
+}
+
+.swiper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.swiper-button-prev, .swiper-button-next {
+  position: inherit;
+  outline: none;
+  &:hover {
+    color: yellow;
+  }
+}
+.swiper-button-prev {
+  margin-right: 20px;
+}
+.swiper-button-next {
+  margin-left: 20px;
+}
+.swiper-pagination,
+.swiper-pagination-fraction {
+  position: initial;
+  margin-top: 15px;
+  font-size: 20px;
+  width: 10%;
+  min-width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+.reverse {
+  position: absolute;
+  background-image: url(../img/reverse.jpg);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  bottom: 10px;
+  right: 15px;
+  display: block;
+  z-index: 4;
+}
+.opacity {
+  opacity: 0;
+}
+.flip-card {
+  transform: rotateY(180deg);
+  transition: ease 0.8s;
+}
+
+@media (min-width: 1050px) {
+  .swiper-slide, .swiper-slide-active {
+    min-width: 220px;
+  }
+  .keyboard {
+    position: absolute;
+    top: 28px;
+    left: 25%;
+    z-index: 10;
+    margin-top: 50px;
+    width: 50%;
+    height: 200px;
+    padding: 10px;
+    background-color: rgb(119, 136, 153);
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+
+
+  .small,
+  .medium,
+  .large,
+  .x-large 
+ {
+    position: relative;
+    width: 6%;
+    max-width: 50px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    user-select: none;
+    transition: border-radius 0.2s, background-color 0.3s;
+  }
+  .small {
+    font-weight: normal;
+    color: darkblue;
+    background-color: lightgrey;
+    font-size: 17px;
+  }
+
+  .medium {
+    width: 7%;
+    max-width: 70px;
+  }
+  .large {
+    width: 12%;
+    max-width: 105px;
+  }
+  .x-large {
+    width: 40%;
+    max-width: 350px;
+  }
+  .line {
+    width: 100%;
+    height: 18%;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .line:first-child {
+    margin-top: 0;
+  }
+
+  .button-active {
+    background-color: lightseagreen;
+    border-radius: 30px 10px;
+  }
+}
+@media (max-width: 1020px) {
+  .clear-img-input, 
+  .keyboard-img-input {
+    display: none;
+  }
+  .reverse {
+    display: none;
+  }
+}
+@media (max-width: 425px) {
+  .search-button {
+    margin-left: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .search-input {
+    padding-right:10px;
+  }
+  .spinner {
+    right: 30%;
+  }
+}
+@media (max-width: 480px) {
+  .search-input {
+    font-size: 17px;
+  }
+}
+@media (max-width: 540px) {
+  .spinner {
+    right: 38%;
+  }
+}
+@media (max-width: 425px) {
+  .search-img-input {
+    display: none;
+  }
+  .search-input {
+    padding: 8px;
+  }
+}
+@media (max-width: 350px) {
+  .spinner {
+    right: 43%;
+  }
+}
+.spinner{
+  width: 40px;
+  height: 40px;
+  border: 3px solid transparent;
+  border-left: 3px solid #d6d815;
+  border-right: 3px solid #d6d815;
+  border-bottom: 3px solid #d6d815;
+  border-radius: 50px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 1px;
+  right: 27%;
+}
+@keyframes spin{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spinner-bg{
+  border-width: 10px;
+}
+.spinner-primary{
+  border-color: #5eaa5e;
+  border-top-color: transparent;
+}
