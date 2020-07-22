@@ -1,0 +1,119 @@
+@media (max-width: 1024px) {
+  .temperature-now {
+    font-size: 150px;
+  }
+  .another-info {
+    font-size: 20px;
+  }
+  .geolocation {
+    min-width: 290px;
+    margin-top: 0;
+  }
+  #map {
+    height: 270px;
+  }
+  .coordinates {
+    font-size: 20px;
+  }
+}
+@media (max-width: 930px) {
+  .container {
+    padding-bottom: 40px;
+  }
+  main {
+    display: block !important;
+  }
+  .location {
+    text-align: center;
+  }
+  .weather {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .time {
+    text-align: center;
+  }
+  .temperature-now {
+    margin-top: 10%;
+  }
+  .left-side-weather {
+    width: 54%;
+  }
+  .weather-now {
+    width: 100%;
+    justify-content: center;
+  }
+  .swiper {
+    width: 100% !important;
+  }
+  .coordinates {
+    display: flex;
+    margin-top: 10%;
+    flex-direction: column;
+    font-size: 22px;
+  }
+  #map {
+    width: 60%;
+  }
+  .geolocation {
+    padding: 20px 0;
+    justify-content: space-between;
+    flex-direction: unset;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-buttons {
+    flex-direction: column;
+  }
+  .general-buttons, .search {
+    justify-content: center;
+  }
+  .weather-now {
+    flex-direction: column;
+  }
+  .right-side-weather {
+    display: flex;
+  }
+  .icon-cloud {
+    width: 60%;
+  }
+  .left-side-weather {
+    display: contents;
+  }
+  .temperature-now {
+    margin-top: 0;
+  }
+  .another-info {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .geolocation {
+    display: flex;
+    flex-direction: column;
+  }
+  .coordinates {
+    text-align: center;
+    margin-top: 3%;
+  }
+  #map {
+    width: 95%;
+  }
+}
+@media (max-width: 430px) { 
+  .right-side-weather {
+    display: block;
+  }
+  .another-info {
+    text-align: center;
+  }
+  .search-input {
+    width: 150px;
+  }
+  .temperature-now {
+    font-size: 100px;
+  }
+}
