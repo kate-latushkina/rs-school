@@ -93,12 +93,12 @@ main {
 }
 
 .change-image {
-  background: rgba(180,184,187,.5) url("/images/Refresh.png") no-repeat;
+  background-color: rgba(180,184,187,.5);
   background-size: cover;
   padding: 0;
+  cursor: pointer;
   &:hover {
-    background: rgba(48, 150, 228, 0.7) url("/images/Refresh.png") no-repeat;
-    background-size: cover;
+    background: rgba(48, 150, 228, 0.7);
   }
 }
 
