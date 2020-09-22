@@ -175,7 +175,7 @@ keyboard.addEventListener('mousedown', (elem) => {
           if (elemCode === arrayLetters[i].text[lang]) {
             input.value += arrayLetters[i].text[lang]
             elem.target.classList.add('button-active')
-          } else {
+          } if (capsLock.classList.contains('button-active') && elemCode === arrayLetters[i].shiftText[lang]) {
             input.value += arrayLetters[i].shiftText[lang]
             elem.target.classList.add('button-active')
           }
